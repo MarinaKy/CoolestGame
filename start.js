@@ -14,7 +14,7 @@ boil.start.prototype = {
         menu.animations.play('load', 7, true);
         menu.scale.setTo (2,2);
         game.input.keyboard.addKey(Phaser.Keyboard.SPACE).onDown.add(function(){
-            game.state.start('bedroom');
+            game.state.start('building');
         });
          
     },

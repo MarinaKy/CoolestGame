@@ -1,7 +1,7 @@
 var game = new Phaser.Game(1500, 1500, Phaser.AUTO);
-//game.state.add('Load', boil.Load);
+game.state.add('load', boil.load);
 game.state.add('start', boil.start);
-//game.state.add('bathroom', boil.bathroom);
+game.state.add('building', boil.building);
 game.state.add('bedroom', boil.bedroom);
 //game.state.add('hallway',boil.hallway);
 //game.state.add('livingR',boil.livingR);
