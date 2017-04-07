@@ -14,23 +14,23 @@
  "nextobjectid":1,
  "orientation":"orthogonal",
  "renderorder":"right-down",
- "tileheight":300,
+ "tileheight":625,
  "tilesets":[
         {
          "columns":1,
          "firstgid":1,
-         "image":"..\/Documents\/CoolestGame\/Assets\/backgrounds\/buildingTileset.png",
-         "imageheight":300,
-         "imagewidth":300,
+         "image":"buildingTileset.png",
+         "imageheight":625,
+         "imagewidth":625,
          "margin":0,
          "name":"buildingTileset",
          "spacing":0,
          "tilecount":1,
-         "tileheight":300,
-         "tilewidth":300,
+         "tileheight":625,
+         "tilewidth":625,
          "transparentcolor":"#fffffd"
         }],
- "tilewidth":300,
+ "tilewidth":625,
  "version":1,
  "width":1
 }

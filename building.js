@@ -16,8 +16,9 @@ boil.building.prototype = {
         console.log('You are in the building state');        
         var map = game.add.tilemap('buildingTilemap');
         
-        map.addTilesetImage('buildingTileset');
+        map.addTilesetImage('buildingTileset', null, 1000, 1000);
         building = map.createLayer('building');
+        
 //        ptag = game.add.sprite(game.world.centerX-650,game.world.centerY+300, 'ptag');
 //        ptag.animations.add('walk',[0,1,2,3,4,5,6,7]);
 //        game.physics.enable(ptag);
