@@ -11,7 +11,7 @@ boil.building.prototype = {
     },
     create: function(){
         game.physics.startSystem(Phaser.Physics.ARCADE);
-        game.world.setBounds(0,0, 1500,1500);
+        game.world.setBounds(0,0, 1250,1250);
         game.stage.backgroundColor = '#A80000';
         console.log('You are in the building state');        
         var map = game.add.tilemap('buildingTilemap');
