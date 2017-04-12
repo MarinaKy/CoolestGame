@@ -30,25 +30,26 @@ boil.bedroom.prototype = {
 },
 update: function(){
     if(game.input.keyboard.isDown(Phaser.Keyboard.S)){
-        ptag.body.velocity.y =-300;
+        ptag.body.velocity.y =300;
+        ptag.body.velocity.x=0;
         ptag.animations.play('walkd', 10,true);
         ptag.scale.setTo(.5,.5);
     }
     else if(game.input.keyboard.isDown(Phaser.Keyboard.W)){
-        ptag.body.velocity.y = 300;
+        ptag.body.velocity.y =-300;
+        ptag.body.velocity.x=0;
         ptag.animations.play('walku',10,true);
         ptag.scale.setTo(.5,.5);
     }
-    else if{
-        ptag.body.velocity.y=0;
-    }
     else if(game.input.keyboard.isDown(Phaser.Keyboard.D)){
         ptag.body.velocity.x=300;
+        ptag.body.velocity.y=0;
         ptag.animations.play('walk',10, true);
         ptag.scale.setTo(-.5,.5);
        }
     else if(game.input.keyboard.isDown(Phaser.Keyboard.A)){
         ptag.body.velocity.x=-300;
+        ptag.body.velocity.y=0;
         ptag.animations.play('walk', 10, true);
         ptag.scale.setTo(.5,.5);
        }
@@ -56,6 +57,7 @@ update: function(){
         ptag.animations.stop('walk');
         ptag.frame = 0;
         ptag.body.velocity.x=0;
+        ptag.body.velocity.y=0;
     }
 
        }
