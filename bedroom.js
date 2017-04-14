@@ -1,6 +1,6 @@
 boil.bedroom = function(){};
 
-var ptag, bedroom;
+var ptag, bedroom, collisions, map;
 
 boil.bedroom.prototype = {
     preload: function(){
@@ -14,9 +14,9 @@ boil.bedroom.prototype = {
         game.world.setBounds(0,0, 1250,1250);
         game.stage.backgroundColor = '#000000';
         console.log('You are in the bedroom state');        
-        var map = game.add.tilemap('bedroomTilemap');
-        map.addTilesetImage('bedroomTileset');
-        bathroom = map.createLayer('bedroom');
+        map = game.add.tilemap('bedroomTilemap');
+        map.addTilesetImage('bedroomTileset'); 
+        bedroom = map.createLayer('bedroom');
         ptag = game.add.sprite(game.world.centerX+300,game.world.centerY+300, 'ptag');
         ptag.animations.add('walk',[3,4,5]);
         ptag.animations.add('walkd',[6,7,8]);
@@ -24,9 +24,21 @@ boil.bedroom.prototype = {
         game.physics.enable(ptag);
         ptag.scale.setTo(-.5,.5);
         ptag.anchor.setTo(0.5);
-//        map.setCollisionBetween(1,25,'bedroom');       
+        map.setCollisionByExclusion([0]);
+        var collisiondata = map.layers[1].data; 
+//        for(var i=0;i<collisiondata.length;i++){
+//            for(var j=0;j<collisiondata[i].length;j++){
+//                var tile = collisiondata[i][j];
+//                if (tile.index != -1){
+//                    console.log(tile.index);
+//                    map.setCollision(tile.index,'bedroom')
+//                }
+////                console.log(collisiondata[i][j]);
+//            }
+//            
+//        }
+
         
-             
 },
 update: function(){
     if(game.input.keyboard.isDown(Phaser.Keyboard.S)){
@@ -59,10 +71,7 @@ update: function(){
         ptag.body.velocity.x=0;
         ptag.body.velocity.y=0;
     }
-
        }
-
-//    game.physics.arcade.collide(ptag,bedroom)
     
 //     if (ptag.x< 15){
 //     changeState('street');
