@@ -17,7 +17,7 @@
  "tileheight":1250,
  "tilesets":[
         {
-         "columns":1,
+         "columns":0,
          "firstgid":1,
          "image":"..\/..\/..\/..\/Desktop\/cafe.png",
          "imageheight":1250,

@@ -24,23 +24,24 @@ boil.bedroom.prototype = {
         game.physics.enable(ptag);
         ptag.scale.setTo(-.5,.5);
         ptag.anchor.setTo(0.5);
-        map.setCollisionByExclusion([0]);
         var collisiondata = map.layers[1].data; 
-//        for(var i=0;i<collisiondata.length;i++){
-//            for(var j=0;j<collisiondata[i].length;j++){
-//                var tile = collisiondata[i][j];
-//                if (tile.index != -1){
-//                    console.log(tile.index);
-//                    map.setCollision(tile.index,'bedroom')
-//                }
-////                console.log(collisiondata[i][j]);
-//            }
-//            
-//        }
+        for(var i=0;i<collisiondata.length;i++){
+            for(var j=0;j<collisiondata[i].length;j++){
+                var tile = collisiondata[i][j];
+                if (tile.index != -1){
+                    console.log(tile.index);
+                    map.setCollision(tile.index,'bedroom')
+                }
+//                console.log(collisiondata[i][j]);
+            }
+            
+        }
 
         
 },
 update: function(){
+        game.physics.arcade.collide(ptag, bedroom);
+    
     if(game.input.keyboard.isDown(Phaser.Keyboard.S)){
         ptag.body.velocity.y =300;
         ptag.body.velocity.x=0;
