@@ -1,6 +1,6 @@
 boil.bedroom = function(){};
 
-var ptag, bedroom, collisions, map, furniture, ikea, idleFrame;
+var ptag, bedroom, collisions, map, furniture, text, textbox, ikea, idleFrame;
 var upIdle = 0
 var downIdle = 6
 var sideIdle = 3
@@ -13,7 +13,8 @@ boil.bedroom.prototype = {
          
     },
     create: function(){
-        var space = this.input.keyboard.addKey(Phaser.Keyboard.SPACE);
+        var enter = this.input.keyboard.addKey(Phaser.Keyboard.ENTER);
+        
         enter.onDown.add(changeText, this);
         
         game.physics.startSystem(Phaser.Physics.ARCADE);
@@ -45,32 +46,33 @@ boil.bedroom.prototype = {
             }
             
         }
+    
         
-         furniture = {
-//            desk: [
-//                [136,137],
-//                [151,155],
-//                [166,170]
-//            ],
-//            dresser: [
-//                [40,43]
-//            ],
-//            plant: [
-//                [36,39]
-//            ],
-//            bed: [
-//                [61,65],
-//                [76,80],
-//                [91,95],
-//                [106,109]
-//            ],
+        furniture = {
+////            desk: [
+////                [136,137],
+////                [151,155],
+////                [166,170]
+////            ],
+////            dresser: [
+////                [40,43]
+////            ],
+////            plant: [
+////                [36,39]
+////            ],
+////            bed: [
+////                [61,65],
+////                [76,80],
+////                [91,95],
+////                [106,109]
+////            ],
             sammy: [
                 [119,121]
             ]
         };
-        
-        this.setupFurniture();
+//        
 
+//
         text = {
              sammy:{
                  dialog: [
@@ -113,7 +115,7 @@ boil.bedroom.prototype = {
 //                
 //                
 //            }
-            
+//            
         };
 
         
@@ -162,21 +164,12 @@ update: function(){
         ptag.frame = idleFrame;
         ptag.body.velocity.x=0;
         ptag.body.velocity.y=0;
-    }
+    };
+
+
+     
 }
-    
-setupFurniture: function() {
-        var keylist = Object.keys(furniture);
-        for(var i=0; i<keylist.length; i++){
-            var key = keylist[i];
-            for(var j=0; j<furniture[key].length;j++){
-                var tiles = furniture[key][j];
-                map.setCollisionBetween(tiles[0],tiles[1],'bedroom');
-            }
-        }
-    }
-    
-     furnitureType: function(index){
+    furnitureType: function(index){
          var keylist = Object.keys(furniture);
         for(var i=0; i<keylist.length; i++){
             var key = keylist[i];
@@ -188,7 +181,74 @@ setupFurniture: function() {
             }
         }
          
-     }
+     };
+    setupFurniture: function(){
+        var keylist = Object.keys(furniture);
+        for(var i=0; i<keylist.length; i++){
+            var key = keylist[i];
+            for(var j=0; j<furniture[key].length;j++){
+                var tiles = furniture[key][j];
+                map.setCollisionBetween(tiles[0],tiles[1],'bedroom');
+            }
+        }
+    };
+        this.setupFurniture();
+
+function changeText(){
+        console.log('ikea', ikea);
+        if(textbox && ikea && wordIndex < text[ikea].dialog.length-1){
+           wordIndex++ 
+           var newText = text[ikea].dialog[wordIndex]
+           words.setText(newText)
+        }
+        else if(textbox && ikea && wordIndex == text[ikea].dialog.length-1 && text[ikea].stateChange){
+                changeState(text[ikea].stateChange)
+        }
+       
+        else if(textbox){
+            textbox.destroy();
+            textbox=null;
+            words.destroy();
+            talksprite.destroy();
+        }
+    
+        else if(ikea!== undefined){
+//            textbox = game.add.sprite(0,0,'textbox');
+
+        if(ikea !== null){
+            var textX =0;
+            var textY = 1000;
+            var textMargin = 75;
+            
+            textbox = game.add.sprite(textX,textY,'textbox');
+
+            //textbox.scale.setTo(8,8);
+            textbox.animations.add('float',[0,1,2,3,4,5]);
+            textbox.animations.play('float',5,true);  
+            
+            var style = {
+                fontSize: '40px',
+                fill : 'white',
+                wordWrap : true,
+                wordWrapWidth : textbox.width-(2*textMargin)
+            };
+            
+            wordIndex = 0
+            words = game.add.text(textX+textMargin,textY+textMargin,text[ikea].dialog[wordIndex],style);
+            
+            if(text[ikea].sprite !== null){
+                talksprite = game.add.sprite(875,1150,text[ikea].sprite);
+                talksprite.scale.setTo(0.8,0.8);
+                talksprite.animations.add('talk', [0,1,2,3,4,5,6,7]);
+                talksprite.animations.play('talk',5,true);
+            }
+            //ikea = null;
+         }
+ };
+};
+
+    
+
     
 
                                     
