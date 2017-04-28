@@ -1,6 +1,6 @@
 boil.bedroom = function(){};
 
-var ptag, bedroom,collisions, map, furniture, text, textbox, ikea, idleFrame;
+var ptag, x, y, bedroom,collisions, map, furniture, text, textbox, ikea, idleFrame;
 var upIdle = 0
 var downIdle = 6
 var sideIdle = 3
@@ -12,6 +12,7 @@ boil.bedroom.prototype = {
         game.load.spritesheet('ptag', 'Assets/Spritesheets/ptag.png',440,750);
         game.load.spritesheet('textbox','Assets/Spritesheets/textbox.png', 1500,470);
         game.load.spritesheet('talksammy','Assets/Spritesheets/talksammy.png', 874,500);
+        game.load.spritesheet('sammy','Assets/Spritesheets/sammy.png', 500,500);
     },
     create: function(){
         var enter = this.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
@@ -25,7 +26,11 @@ boil.bedroom.prototype = {
         map = game.add.tilemap('bedroomTilemap');
         map.addTilesetImage('bedroomTileset'); 
         bedroom = map.createLayer('bedroom');
-        ptag = game.add.sprite(game.world.centerX+300,game.world.centerY+300, 'ptag');
+        ptag = game.add.sprite(game.world.centerX+350,game.world.centerY+450, 'ptag');
+        sammy = game.add.sprite(game.world.centerX+410,game.world.centerY-510,'sammy');
+        sammy.scale.setTo(.3,.3);
+        sammy.animations.add('swim',[0,1]);
+        sammy.animations.play('swim',3, true);
         ptag.animations.add('walk',[3,4,5]);
         ptag.animations.add('walkd',[6,7,8]);
         ptag.animations.add('walku',[0,1,2]);
@@ -76,7 +81,11 @@ boil.bedroom.prototype = {
         text = {
              sammy:{
                  dialog: [
-                     'Hey there!',
+                     'Oh!!! Hey there! I’m Sammy the Salmon. New to the game, huh??? Press SPACE to see what I have to say next!',
+                     'Good job! (Amateur...)',
+                     'Look at your keyboard. Now look at me. Now keep looking at me. Aren’t I just super amazing?',
+                     '…',
+                     'The answer is YES by the way. Use the ARROW KEYS to pick YES and SPACEBAR to confirm your choice.'
                 ],
                  sprite: 'talksammy'
              },
@@ -121,6 +130,10 @@ boil.bedroom.prototype = {
             console.log('collided', self.furnitureType(obj2.index));
             ikea = self.furnitureType(obj2.index);
         })
+                
+     if (ptag.y>1099){
+     changeState('cafe');
+     }
     
         if(game.input.keyboard.isDown(Phaser.Keyboard.S)){
             ptag.body.velocity.y =300;
@@ -186,22 +199,11 @@ boil.bedroom.prototype = {
                 map.setCollision(tiles[0],tiles[1],'bedroom');
             }
         }
-    },    
+    }
+
     }
 
 
-
-
-
-    
-
-    
-
-                                    
-    
-//     if (ptag.x< 15){
-//     changeState('street');
-//     };
 
 
 
@@ -251,7 +253,7 @@ boil.bedroom.prototype = {
             words = game.add.text(textX+textMargin,textY+textMargin,text[ikea].dialog[wordIndex],style);
             
             if(text[ikea].sprite !== null){
-                talksprite = game.add.sprite(500,600,text[ikea].sprite);
+                talksprite = game.add.sprite(400,550,text[ikea].sprite);
                 talksprite.scale.setTo(0.8,0.8);
                 talksprite.animations.add('talk', [0,1,2,3,4,5,6,7]);
                 talksprite.animations.play('talk',5,true);
