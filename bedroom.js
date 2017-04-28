@@ -1,6 +1,6 @@
 boil.bedroom = function(){};
 
-var ptag, bedroom, collisions, map, furniture, text, textbox, ikea, idleFrame;
+var ptag, bedroom,collisions, map, furniture, text, textbox, ikea, idleFrame;
 var upIdle = 0
 var downIdle = 6
 var sideIdle = 3
@@ -10,10 +10,11 @@ boil.bedroom.prototype = {
         game.load.tilemap('bedroomTilemap', 'Assets/Backgrounds/bedroomTilemap.json', null,Phaser.Tilemap.TILED_JSON);
         game.load.image('bedroomTileset', 'Assets/Backgrounds/bedroomTileset.png');
         game.load.spritesheet('ptag', 'Assets/Spritesheets/ptag.png',440,750);
-         
+        game.load.spritesheet('textbox','Assets/Spritesheets/textbox.png', 1500,470);
+        game.load.spritesheet('talksammy','Assets/Spritesheets/talksammy.png', 874,500);
     },
     create: function(){
-        var enter = this.input.keyboard.addKey(Phaser.Keyboard.ENTER);
+        var enter = this.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
         
         enter.onDown.add(changeText, this);
         
@@ -31,7 +32,7 @@ boil.bedroom.prototype = {
         
         game.physics.enable(ptag);
         ptag.body.collideWorldBounds=true;
-        ptag.scale.setTo(-.5,.5);
+        ptag.scale.setTo(-.4,.4);
         ptag.anchor.setTo(0.5);
         
         var collisiondata = map.layers[1].data; 
@@ -49,42 +50,41 @@ boil.bedroom.prototype = {
     
         
         furniture = {
-////            desk: [
-////                [136,137],
-////                [151,155],
-////                [166,170]
-////            ],
-////            dresser: [
-////                [40,43]
-////            ],
+            shelf: [
+                [56,58],
+                [60,62],
+                [64,65]
+            ],
+            lamp: [
+                [66,68]
+            ],
 ////            plant: [
 ////                [36,39]
 ////            ],
-////            bed: [
-////                [61,65],
-////                [76,80],
-////                [91,95],
-////                [106,109]
-////            ],
+            bed: [
+                [153,178],
+                [203,228],
+                [253,278]
+            ],
             sammy: [
-                [119,121]
+                [120,124]
             ]
         };
 //        
-
+        this.setupFurniture();
 //
         text = {
              sammy:{
                  dialog: [
                      'Hey there!',
                 ],
-                 sprite: null
+                 sprite: 'talksammy'
              },
-//            dresser: {
-//                dialog: [
-//                    'just clothes',
-//                ],
-//                sprite: null     //'talkfrige'
+            shelf: {
+                dialog: [
+                    'just clothes',
+                ],
+                sprite: null
 //            },
 //            plant:{
 //                dialog: [
@@ -131,7 +131,7 @@ update: function(){
         ptag.body.velocity.y =300;
         ptag.body.velocity.x=0;
         ptag.animations.play('walkd', 10,true);
-        ptag.scale.setTo(.5,.5);
+        ptag.scale.setTo(.4,.4);
         idleFrame = downIdle;
         ikea = null;
     }
@@ -139,7 +139,7 @@ update: function(){
         ptag.body.velocity.y =-300;
         ptag.body.velocity.x=0;
         ptag.animations.play('walku',10,true);
-        ptag.scale.setTo(.5,.5);
+        ptag.scale.setTo(.4,.4);
         idleFrame = upIdle;
         ikea = null;
     }
@@ -147,7 +147,7 @@ update: function(){
         ptag.body.velocity.x=300;
         ptag.body.velocity.y=0;
         ptag.animations.play('walk',10, true);
-        ptag.scale.setTo(-.5,.5);
+        ptag.scale.setTo(-.4,.4);
         idleFrame = sideIdle;
         ikea = null;
        }
@@ -155,7 +155,7 @@ update: function(){
         ptag.body.velocity.x=-300;
         ptag.body.velocity.y=0;
         ptag.animations.play('walk', 10, true);
-        ptag.scale.setTo(.5,.5);
+        ptag.scale.setTo(.4,.4);
         idleFrame = sideIdle;
         ikea = null;
        }
@@ -164,11 +164,11 @@ update: function(){
         ptag.frame = idleFrame;
         ptag.body.velocity.x=0;
         ptag.body.velocity.y=0;
-    };
+    }
 
 
      
-}
+},
     furnitureType: function(index){
          var keylist = Object.keys(furniture);
         for(var i=0; i<keylist.length; i++){
@@ -181,20 +181,39 @@ update: function(){
             }
         }
          
-     };
+     },
     setupFurniture: function(){
         var keylist = Object.keys(furniture);
         for(var i=0; i<keylist.length; i++){
             var key = keylist[i];
             for(var j=0; j<furniture[key].length;j++){
                 var tiles = furniture[key][j];
-                map.setCollisionBetween(tiles[0],tiles[1],'bedroom');
+                map.setCollision(tiles[0],tiles[1],'bedroom');
             }
         }
-    };
-        this.setupFurniture();
+    },
 
-function changeText(){
+
+
+
+    
+
+    
+
+                                    
+    
+//     if (ptag.x< 15){
+//     changeState('street');
+//     };
+    };
+
+
+
+
+
+
+
+ function changeText(){
         console.log('ikea', ikea);
         if(textbox && ikea && wordIndex < text[ikea].dialog.length-1){
            wordIndex++ 
@@ -216,13 +235,12 @@ function changeText(){
 //            textbox = game.add.sprite(0,0,'textbox');
 
         if(ikea !== null){
-            var textX =0;
-            var textY = 1000;
+            var textX =10;
+            var textY = 900;
             var textMargin = 75;
             
             textbox = game.add.sprite(textX,textY,'textbox');
-
-            //textbox.scale.setTo(8,8);
+            textbox.scale.setTo(.8,.8);
             textbox.animations.add('float',[0,1,2,3,4,5]);
             textbox.animations.play('float',5,true);  
             
@@ -237,23 +255,12 @@ function changeText(){
             words = game.add.text(textX+textMargin,textY+textMargin,text[ikea].dialog[wordIndex],style);
             
             if(text[ikea].sprite !== null){
-                talksprite = game.add.sprite(875,1150,text[ikea].sprite);
+                talksprite = game.add.sprite(500,600,text[ikea].sprite);
                 talksprite.scale.setTo(0.8,0.8);
                 talksprite.animations.add('talk', [0,1,2,3,4,5,6,7]);
                 talksprite.animations.play('talk',5,true);
             }
             //ikea = null;
          }
- };
-};
-
-    
-
-    
-
-                                    
-    
-//     if (ptag.x< 15){
-//     changeState('street');
-//     };
-    };
+ }
+}
