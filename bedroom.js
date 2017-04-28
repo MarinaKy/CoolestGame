@@ -85,7 +85,7 @@ boil.bedroom.prototype = {
                     'just clothes',
                 ],
                 sprite: null
-//            },
+            },
 //            plant:{
 //                dialog: [
 //                    'sometimes you look out your window, and see kids trying to throw rocks at your face.',
@@ -110,66 +110,61 @@ boil.bedroom.prototype = {
 //                ],
 //                sprite: 'shrooms',
 //                //end: 'pop',
-//                stateChange: 'oBedroom'
-//                
-//                
-//                
+//                stateChange: 'oBedroom'              
 //            }
 //            
-        };
-
-        
-},
-update: function(){
-    var self = this;
+        }
+    },
+    update: function(){
+        var self = this;
             game.physics.arcade.collide(ptag, bedroom, function(obj1, obj2) { 
             console.log('collided', self.furnitureType(obj2.index));
             ikea = self.furnitureType(obj2.index);
         })
     
-    if(game.input.keyboard.isDown(Phaser.Keyboard.S)){
-        ptag.body.velocity.y =300;
-        ptag.body.velocity.x=0;
-        ptag.animations.play('walkd', 10,true);
-        ptag.scale.setTo(.4,.4);
-        idleFrame = downIdle;
-        ikea = null;
-    }
-    else if(game.input.keyboard.isDown(Phaser.Keyboard.W)){
-        ptag.body.velocity.y =-300;
-        ptag.body.velocity.x=0;
-        ptag.animations.play('walku',10,true);
-        ptag.scale.setTo(.4,.4);
-        idleFrame = upIdle;
-        ikea = null;
-    }
-    else if(game.input.keyboard.isDown(Phaser.Keyboard.D)){
-        ptag.body.velocity.x=300;
-        ptag.body.velocity.y=0;
-        ptag.animations.play('walk',10, true);
-        ptag.scale.setTo(-.4,.4);
-        idleFrame = sideIdle;
-        ikea = null;
+        if(game.input.keyboard.isDown(Phaser.Keyboard.S)){
+            ptag.body.velocity.y =300;
+            ptag.body.velocity.x=0;
+            ptag.animations.play('walkd', 10,true);
+            ptag.scale.setTo(.4,.4);
+            idleFrame = downIdle;
+            ikea = null;
+        }
+        else if(game.input.keyboard.isDown(Phaser.Keyboard.W)){
+            ptag.body.velocity.y =-300;
+            ptag.body.velocity.x=0;
+            ptag.animations.play('walku',10,true);
+            ptag.scale.setTo(.4,.4);
+            idleFrame = upIdle;
+            ikea = null;
+        }
+        else if(game.input.keyboard.isDown(Phaser.Keyboard.D)){
+            ptag.body.velocity.x=300;
+            ptag.body.velocity.y=0;
+            ptag.animations.play('walk',10, true);
+            ptag.scale.setTo(-.4,.4);
+            idleFrame = sideIdle;
+            ikea = null;
        }
-    else if(game.input.keyboard.isDown(Phaser.Keyboard.A)){
-        ptag.body.velocity.x=-300;
-        ptag.body.velocity.y=0;
-        ptag.animations.play('walk', 10, true);
-        ptag.scale.setTo(.4,.4);
-        idleFrame = sideIdle;
-        ikea = null;
+        else if(game.input.keyboard.isDown(Phaser.Keyboard.A)){
+            ptag.body.velocity.x=-300;
+            ptag.body.velocity.y=0;
+            ptag.animations.play('walk', 10, true);
+            ptag.scale.setTo(.4,.4);
+            idleFrame = sideIdle;
+            ikea = null;
        }
-    else{
-        ptag.animations.stop();        
-        ptag.frame = idleFrame;
-        ptag.body.velocity.x=0;
-        ptag.body.velocity.y=0;
-    }
+        else{
+            ptag.animations.stop();        
+            ptag.frame = idleFrame;
+            ptag.body.velocity.x=0;
+            ptag.body.velocity.y=0;
+        }
 
 
      
 },
-    furnitureType: function(index){
+      furnitureType: function(index){
          var keylist = Object.keys(furniture);
         for(var i=0; i<keylist.length; i++){
             var key = keylist[i];
@@ -191,7 +186,9 @@ update: function(){
                 map.setCollision(tiles[0],tiles[1],'bedroom');
             }
         }
-    },
+    },    
+    }
+
 
 
 
@@ -205,7 +202,6 @@ update: function(){
 //     if (ptag.x< 15){
 //     changeState('street');
 //     };
-    };
 
 
 
