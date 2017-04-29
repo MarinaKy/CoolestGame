@@ -73,7 +73,12 @@ boil.bedroom.prototype = {
             ],
             sammy: [
                 [120,124]
+            ],
+            counter: [
+                [354,356],
+                [358,360]
             ]
+            
         };
 //        
         this.setupFurniture();
@@ -91,26 +96,42 @@ boil.bedroom.prototype = {
              },
             shelf: {
                 dialog: [
-                    'just clothes',
+                    'You burned almost all of the books last winter',
+                    ' But it’s okay,',
+                    'You’re illiterate anyway.',
                 ],
                 sprite: null
             },
-//            plant:{
-//                dialog: [
-//                    'sometimes you look out your window, and see kids trying to throw rocks at your face.',
-//                         ],
-//                sprite: null
-//            },
-//            bed:{
-//                dialog: [
-//                    'This quilt was from your grandma for christmas.',
-//                    'She died two weeks ago...',
-//                    '...and you didn’t even show up to her funeral.',
-//                    'You want to repress that memory',
-//                    'You notice something at the foot of the bed.'
+            lamp:{
+                dialog: [
+                    'This lamp barely works',
+                    'But you still keep around it because you’re emotionally attached to it',
+                    'It’s your only source of brightness in life.',
+//                    'It’s your only light in life',
+                         ],
+                sprite: null
+            },
+            bed:{
+                dialog: [
+                    'You’ve had this bed your whole life',
+                    'You have to curl up into a ball to sleep on it, but you’ve never had enough money to buy another one.',
+                ],
+                sprite: null
+            }, 
+            counter:{
+                dialog:[
+                    'You own a single cup',
+                    '(because you have no friends)',
+                ],
+                sprite: null
+            },
+//            couch:{
+//                dialog:[
+//                    'You found this couch on the sidewalk a few years ago.',
+//                    'There are suspicious stains all over it...'
 //                ],
 //                sprite: null
-//            }, 
+//            },
 //            wedge: {
 //                dialog: [
 //                    'You find a packet of mushrooms wedged between the mattress and the frame of the bed.',
@@ -131,7 +152,7 @@ boil.bedroom.prototype = {
             ikea = self.furnitureType(obj2.index);
         })
                 
-     if (ptag.y>1099){
+     if (ptag.x>1161){
      changeState('cafe');
      }
     
