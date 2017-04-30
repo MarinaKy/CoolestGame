@@ -1,6 +1,6 @@
 boil.cafe = function(){};
 
-var ptag, cafe,collisions, map, furniture, text, textbox, ikea, idleFrame;
+var ptag, cafe,collisions, map, furniture, text, textbox, ikea, idleFrame, hasAwoken=false;
 var upIdle = 0
 var downIdle = 6
 var sideIdle = 3
@@ -25,8 +25,12 @@ boil.cafe.prototype = {
         map = game.add.tilemap('cafeTilemap');
         map.addTilesetImage('cafeTileset'); 
         cafe = map.createLayer('cafe');
-        ptag = game.add.sprite(game.world.centerX-500,game.world.centerY+475, 'ptag');
-        cindy = game.add.sprite(game.world.centerX+350,game.world.centerY+300,'cindy');
+        ptag = game.add.sprite(110,1065, 'ptag');
+         if(!hasAwoken){
+            cindy = game.add.sprite(400,1090, 'cindy');
+        }
+        else cindy = game.add.sprite(856,870, 'cindy')
+//        cindy = game.add.sprite(game.world.centerX+350,game.world.centerY+300,'cindy');
         cindy.scale.setTo(.4,.4);
         cindy.animations.add('stand',[0,1]);
         cindy.animations.play('stand',3, true);
@@ -35,10 +39,14 @@ boil.cafe.prototype = {
         ptag.animations.add('walku',[0,1,2]);
         
         game.physics.enable(ptag);
+        game.physics.enable(cindy);
         ptag.body.collideWorldBounds=true;
         ptag.scale.setTo(-.4,.4);
         ptag.anchor.setTo(0.5);
-        
+        cindy.anchor.setTo(0.6);
+        if(!hasAwoken){
+            cindy.angle = 90 
+        }
         var collisiondata = map.layers[1].data; 
         for(var i=0;i<collisiondata.length;i++){
             for(var j=0;j<collisiondata[i].length;j++){
@@ -120,11 +128,12 @@ boil.cafe.prototype = {
         }
     },
     update: function(){
-        var self = this;
-            game.physics.arcade.collide(ptag, cafe, function(obj1, obj2) { 
-            console.log('collided', self.furnitureType(obj2.index));
-            ikea = self.furnitureType(obj2.index);
-        })
+         if(cindy.angle>0){
+            cindy.angle--
+            cindy.x--
+        }
+        else {
+            hasAwoken=true
     
         if(game.input.keyboard.isDown(Phaser.Keyboard.S)){
             ptag.body.velocity.y =300;
@@ -164,8 +173,12 @@ boil.cafe.prototype = {
             ptag.body.velocity.x=0;
             ptag.body.velocity.y=0;
         }
-
-
+        var self = this;
+            game.physics.arcade.collide(ptag, cafe, function(obj1, obj2) { 
+            console.log('collided', self.furnitureType(obj2.index));
+            ikea = self.furnitureType(obj2.index);
+        })
+        }
      
 },
       furnitureType: function(index){

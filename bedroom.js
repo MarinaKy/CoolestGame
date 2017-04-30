@@ -77,7 +77,11 @@ boil.bedroom.prototype = {
             counter: [
                 [354,356],
                 [358,360]
-            ]
+            ],
+            couch: [
+                [527,552],
+                [577,602]
+            ],
             
         };
 //        
@@ -125,13 +129,13 @@ boil.bedroom.prototype = {
                 ],
                 sprite: null
             },
-//            couch:{
-//                dialog:[
-//                    'You found this couch on the sidewalk a few years ago.',
-//                    'There are suspicious stains all over it...'
-//                ],
-//                sprite: null
-//            },
+            couch:{
+                dialog:[
+                    'You found this couch on the sidewalk a few years ago.',
+                    'There are suspicious stains all over it...'
+                ],
+                sprite: null
+            },
 //            wedge: {
 //                dialog: [
 //                    'You find a packet of mushrooms wedged between the mattress and the frame of the bed.',
