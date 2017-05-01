@@ -37,7 +37,7 @@ boil.bedroom.prototype = {
         
         game.physics.enable(ptag);
         ptag.body.collideWorldBounds=true;
-        ptag.scale.setTo(-.4,.4);
+        ptag.scale.setTo(-.35,.35);
         ptag.anchor.setTo(0.5);
         
         var collisiondata = map.layers[1].data; 
@@ -71,11 +71,13 @@ boil.bedroom.prototype = {
                 [203,228],
                 [253,278]
             ],
+            
             sammy: [
                 [120,124]
             ],
             counter: [
-                [354,356],
+                [354,355,],
+                [356,557],
                 [358,360]
             ],
             couch: [
@@ -108,10 +110,8 @@ boil.bedroom.prototype = {
             },
             lamp:{
                 dialog: [
-                    'This lamp barely works',
-                    'But you still keep around it because you’re emotionally attached to it',
-                    'It’s your only source of brightness in life.',
-//                    'It’s your only light in life',
+                    'This lamp would have been the light of your life',
+                    'if it worked',
                          ],
                 sprite: null
             },
@@ -157,14 +157,14 @@ boil.bedroom.prototype = {
         })
                 
      if (ptag.x>1161){
-     changeState('cafe');
+     changeState('cafeoutside');
      }
     
         if(game.input.keyboard.isDown(Phaser.Keyboard.S)){
             ptag.body.velocity.y =300;
             ptag.body.velocity.x=0;
             ptag.animations.play('walkd', 10,true);
-            ptag.scale.setTo(.4,.4);
+            ptag.scale.setTo(.35,.35);
             idleFrame = downIdle;
             ikea = null;
         }
@@ -172,7 +172,7 @@ boil.bedroom.prototype = {
             ptag.body.velocity.y =-300;
             ptag.body.velocity.x=0;
             ptag.animations.play('walku',10,true);
-            ptag.scale.setTo(.4,.4);
+            ptag.scale.setTo(.35,.35);
             idleFrame = upIdle;
             ikea = null;
         }
@@ -180,7 +180,7 @@ boil.bedroom.prototype = {
             ptag.body.velocity.x=300;
             ptag.body.velocity.y=0;
             ptag.animations.play('walk',10, true);
-            ptag.scale.setTo(-.4,.4);
+            ptag.scale.setTo(-.35,.35);
             idleFrame = sideIdle;
             ikea = null;
        }
@@ -188,7 +188,7 @@ boil.bedroom.prototype = {
             ptag.body.velocity.x=-300;
             ptag.body.velocity.y=0;
             ptag.animations.play('walk', 10, true);
-            ptag.scale.setTo(.4,.4);
+            ptag.scale.setTo(.35,.35);
             idleFrame = sideIdle;
             ikea = null;
        }

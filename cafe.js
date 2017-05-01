@@ -12,6 +12,7 @@ boil.cafe.prototype = {
         game.load.spritesheet('ptag', 'Assets/Spritesheets/ptag.png',440,750);
         game.load.spritesheet('textbox','Assets/Spritesheets/textbox.png', 1500,470);
         game.load.spritesheet('cindy','Assets/Spritesheets/cindy.png', 440,750);
+        game.load.image('ctalk','Assets/Spritesheets/ctalk.png', 1920,1080);
     },
     create: function(){
         var enter = this.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
@@ -31,7 +32,7 @@ boil.cafe.prototype = {
         }
         else cindy = game.add.sprite(856,870, 'cindy')
 //        cindy = game.add.sprite(game.world.centerX+350,game.world.centerY+300,'cindy');
-        cindy.scale.setTo(.4,.4);
+        cindy.scale.setTo(.35,.35);
         cindy.animations.add('stand',[0,1]);
         cindy.animations.play('stand',3, true);
         ptag.animations.add('walk',[3,4,5]);
@@ -41,7 +42,7 @@ boil.cafe.prototype = {
         game.physics.enable(ptag);
         game.physics.enable(cindy);
         ptag.body.collideWorldBounds=true;
-        ptag.scale.setTo(-.4,.4);
+        ptag.scale.setTo(-.35,.35);
         ptag.anchor.setTo(0.5);
         cindy.anchor.setTo(0.6);
         if(!hasAwoken){
@@ -139,7 +140,7 @@ boil.cafe.prototype = {
             ptag.body.velocity.y =300;
             ptag.body.velocity.x=0;
             ptag.animations.play('walkd', 10,true);
-            ptag.scale.setTo(.4,.4);
+            ptag.scale.setTo(.35,.35);
             idleFrame = downIdle;
             ikea = null;
         }
@@ -147,7 +148,7 @@ boil.cafe.prototype = {
             ptag.body.velocity.y =-300;
             ptag.body.velocity.x=0;
             ptag.animations.play('walku',10,true);
-            ptag.scale.setTo(.4,.4);
+            ptag.scale.setTo(.35,.35);
             idleFrame = upIdle;
             ikea = null;
         }
@@ -155,7 +156,7 @@ boil.cafe.prototype = {
             ptag.body.velocity.x=300;
             ptag.body.velocity.y=0;
             ptag.animations.play('walk',10, true);
-            ptag.scale.setTo(-.4,.4);
+            ptag.scale.setTo(-.35,.35);
             idleFrame = sideIdle;
             ikea = null;
        }
@@ -163,7 +164,7 @@ boil.cafe.prototype = {
             ptag.body.velocity.x=-300;
             ptag.body.velocity.y=0;
             ptag.animations.play('walk', 10, true);
-            ptag.scale.setTo(.4,.4);
+            ptag.scale.setTo(.35,.35);
             idleFrame = sideIdle;
             ikea = null;
        }
