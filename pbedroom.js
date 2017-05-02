@@ -93,49 +93,38 @@ boil.pbedroom.prototype = {
         this.setupFurniture();
 //
         text = {
-             sammy:{
-                 dialog: [
-                     'Oh!!! Hey there! I’m Sammy the Salmon. New to the game, huh??? Press SPACE to see what I have to say next!',
-                     'Good job! (Amateur...)',
-                     'Look at your keyboard. Now look at me. Now keep looking at me. Aren’t I just super amazing?',
-                     '…',
-                     'The answer is YES by the way. Use the ARROW KEYS to pick YES and SPACEBAR to confirm your choice.'
-                ],
-                 sprite: 'talksammy'
-             },
+             
             shelf: {
                 dialog: [
-                    'You burned almost all of the books last winter',
-                    ' But it’s okay,',
-                    'You’re illiterate anyway.',
+                    'You poor illiterate person',
                 ],
                 sprite: null
             },
             lamp:{
                 dialog: [
-                    'This lamp would have been the light of your life',
-                    'if it worked',
+                    'You are too fat to fit through here',
                          ],
                 sprite: null
             },
-            bed:{
+            bed:{ 
                 dialog: [
-                    'You’ve had this bed your whole life',
-                    'You have to curl up into a ball to sleep on it, but you’ve never had enough money to buy another one.',
+                     'It smells like her',
+                     'You like it',
                 ],
                 sprite: null
             }, 
-            counter:{
+            Desk:{
                 dialog:[
-                    'You own a single cup',
-                    '(because you have no friends)',
+                    'Trying to snoop on her laptop?',
+                    'You’re disgusting',
+                    
                 ],
                 sprite: null
             },
-            couch:{
+            Table:{
                 dialog:[
-                    'You found this couch on the sidewalk a few years ago.',
-                    'There are suspicious stains all over it...'
+                    'A table for two....',
+                    '...something you will never have...',
                 ],
                 sprite: null
             },

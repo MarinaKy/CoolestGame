@@ -117,6 +117,7 @@ boil.cafeoutside.prototype = {
                  sprite: null,
                  stateChange: 'bedroom'
             },
+            
 //            couch:{
 //                dialog:[
 //                    'You found this couch on the sidewalk a few years ago.',
