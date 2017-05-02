@@ -93,35 +93,25 @@ boil.sbedroom.prototype = {
         this.setupFurniture();
 //
         text = {
-             sammy:{
-                 dialog: [
-                     'Oh!!! Hey there! I’m Sammy the Salmon. New to the game, huh??? Press SPACE to see what I have to say next!',
-                     'Good job! (Amateur...)',
-                     'Look at your keyboard. Now look at me. Now keep looking at me. Aren’t I just super amazing?',
-                     '…',
-                     'The answer is YES by the way. Use the ARROW KEYS to pick YES and SPACEBAR to confirm your choice.'
-                ],
-                 sprite: 'talksammy'
-             },
+             
             shelf: {
                 dialog: [
-                    'You burned almost all of the books last winter',
-                    ' But it’s okay,',
-                    'You’re illiterate anyway.',
+                   
+                    'You wonder what kind of books she reads',
+                    'Oh yea',
+                    'You can’t read',
                 ],
                 sprite: null
             },
             lamp:{
                 dialog: [
-                    'This lamp would have been the light of your life',
-                    'if it worked',
+                    'This lamp costs more than your life',
                          ],
                 sprite: null
             },
             bed:{
                 dialog: [
-                    'You’ve had this bed your whole life',
-                    'You have to curl up into a ball to sleep on it, but you’ve never had enough money to buy another one.',
+                   'It looks more comfortable than yours',
                 ],
                 sprite: null
             }, 
@@ -132,13 +122,7 @@ boil.sbedroom.prototype = {
                 ],
                 sprite: null
             },
-            couch:{
-                dialog:[
-                    'You found this couch on the sidewalk a few years ago.',
-                    'There are suspicious stains all over it...'
-                ],
-                sprite: null
-            },
+          
 //            wedge: {
 //                dialog: [
 //                    'You find a packet of mushrooms wedged between the mattress and the frame of the bed.',
