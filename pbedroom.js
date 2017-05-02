@@ -102,12 +102,11 @@ boil.pbedroom.prototype = {
             },
             lamp:{
                 dialog: [
-                    'This lamp would have been the light of your life',
-                    'if it worked',
+                    'You are too fat to fit through here',
                          ],
                 sprite: null
             },
-            bed:{
+            bed:{ 
                 dialog: [
                      'It smells like her',
                      'You like it',
@@ -116,8 +115,9 @@ boil.pbedroom.prototype = {
             }, 
             Desk:{
                 dialog:[
-                    'Trying to snoop on her laptop?’
+                    'Trying to snoop on her laptop?',
                     'You’re disgusting',
+                    
                 ],
                 sprite: null
             },
