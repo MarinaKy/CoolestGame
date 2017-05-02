@@ -1,18 +1,18 @@
-boil.bedroom = function(){};
+boil.sbedroom = function(){};
 
-var ptag, x, y, bedroom,collisions, map, furniture, text, textbox, ikea, idleFrame;
+var ptag, x, y, sbedroom,collisions, map, furniture, text, textbox, ikea, idleFrame;
 var upIdle = 0
 var downIdle = 6
 var sideIdle = 3
 
-boil.bedroom.prototype = {
+boil.sbedroom.prototype = {
     preload: function(){
-        game.load.tilemap('bedroomTilemap', 'Assets/Backgrounds/bedroomTilemap.json', null,Phaser.Tilemap.TILED_JSON);
-        game.load.image('bedroomTileset', 'Assets/Backgrounds/bedroomTileset.png');
+        game.load.tilemap('sbedroomTilemap', 'Assets/Backgrounds/sbedroomTilemap.json', null,Phaser.Tilemap.TILED_JSON);
+        game.load.image('sbedroomTileset', 'Assets/Backgrounds/sbedroomTileset.png');
         game.load.spritesheet('ptag', 'Assets/Spritesheets/ptag.png',440,750);
         game.load.spritesheet('textbox','Assets/Spritesheets/textbox.png', 1500,470);
-        game.load.spritesheet('talksammy','Assets/Spritesheets/talksammy.png', 874,500);
-        game.load.spritesheet('sammy','Assets/Spritesheets/sammy.png', 500,500);
+//        game.load.spritesheet('talksammy','Assets/Spritesheets/talksammy.png', 874,500);
+//        game.load.spritesheet('sammy','Assets/Spritesheets/sammy.png', 500,500);
     },
     create: function(){
         var enter = this.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
@@ -22,22 +22,18 @@ boil.bedroom.prototype = {
         game.physics.startSystem(Phaser.Physics.ARCADE);
         game.world.setBounds(0,0, 1250,1250);
         game.stage.backgroundColor = '#000000';
-        console.log('You are in the bedroom state');        
-        map = game.add.tilemap('bedroomTilemap');
-        map.addTilesetImage('bedroomTileset'); 
-        bedroom = map.createLayer('bedroom');
+        console.log('You are in the sbedroom state');        
+        map = game.add.tilemap('sbedroomTilemap');
+        map.addTilesetImage('sbedroomTileset'); 
+        sbedroom = map.createLayer('sbedroom');
         ptag = game.add.sprite(game.world.centerX+350,game.world.centerY+450, 'ptag');
-        sammy = game.add.sprite(game.world.centerX+410,game.world.centerY-510,'sammy');
-        sammy.scale.setTo(.3,.3);
-        sammy.animations.add('swim',[0,1]);
-        sammy.animations.play('swim',3, true);
         ptag.animations.add('walk',[3,4,5]);
         ptag.animations.add('walkd',[6,7,8]);
         ptag.animations.add('walku',[0,1,2]);
         
         game.physics.enable(ptag);
         ptag.body.collideWorldBounds=true;
-        ptag.scale.setTo(-.35,.35);
+        ptag.scale.setTo(-.33,.33);
         ptag.anchor.setTo(0.5);
         
         var collisiondata = map.layers[1].data; 
@@ -46,7 +42,7 @@ boil.bedroom.prototype = {
                 var tile = collisiondata[i][j];
                 if (tile.index != -1){
                     console.log(tile.index);
-                    map.setCollision(tile.index,'bedroom')
+                    map.setCollision(tile.index,'sbedroom')
                 }
 
             }
@@ -56,35 +52,41 @@ boil.bedroom.prototype = {
         
         furniture = {
             shelf: [
-                [56,58],
-                [60,62],
-                [64,65]
+                [86,87],
+                [88,89,90]
             ],
             lamp: [
-                [66,68]
+                [125,126,127]
             ],
 ////            plant: [
 ////                [36,39]
 ////            ],
             bed: [
-                [153,178],
-                [203,228],
-                [253,278]
+                [155,180],
+                [205,230],
+                [255,280],
+                [303,305],
+                [305,306],
+                [307,308],
+                [309,310],
+                [110,135],
+                [160,185],
+                [210,235],
+                [260,285],
+                
             ],
-            
-            sammy: [
-                [120,124]
-            ],
-            counter: [
-                [354,355,],
-                [356,557],
-                [358,360]
-            ],
-            couch: [
-                [477,502],
-                [527,552],
-                [577,602]
-            ],
+//            sammy: [
+//                [120,124]
+//            ],
+//            counter: [
+//                [354,355,],
+//                [356,557],
+//                [358,360]
+//            ],
+//            couch: [
+//                [527,552],
+//                [577,602]
+//            ],
             
         };
 //        
@@ -145,14 +147,14 @@ boil.bedroom.prototype = {
 //                ],
 //                sprite: 'shrooms',
 //                //end: 'pop',
-//                stateChange: 'oBedroom'              
+//                stateChange: 'osbedroom'              
 //            }
 //            
         }
     },
     update: function(){
         var self = this;
-            game.physics.arcade.collide(ptag, bedroom, function(obj1, obj2) { 
+            game.physics.arcade.collide(ptag, sbedroom, function(obj1, obj2) { 
             console.log('collided', self.furnitureType(obj2.index));
             ikea = self.furnitureType(obj2.index);
         })
@@ -165,7 +167,7 @@ boil.bedroom.prototype = {
             ptag.body.velocity.y =300;
             ptag.body.velocity.x=0;
             ptag.animations.play('walkd', 10,true);
-            ptag.scale.setTo(.35,.35);
+            ptag.scale.setTo(.33,.33);
             idleFrame = downIdle;
             ikea = null;
         }
@@ -173,7 +175,7 @@ boil.bedroom.prototype = {
             ptag.body.velocity.y =-300;
             ptag.body.velocity.x=0;
             ptag.animations.play('walku',10,true);
-            ptag.scale.setTo(.35,.35);
+            ptag.scale.setTo(.33,.33);
             idleFrame = upIdle;
             ikea = null;
         }
@@ -181,7 +183,7 @@ boil.bedroom.prototype = {
             ptag.body.velocity.x=300;
             ptag.body.velocity.y=0;
             ptag.animations.play('walk',10, true);
-            ptag.scale.setTo(-.35,.35);
+            ptag.scale.setTo(-.33,.33);
             idleFrame = sideIdle;
             ikea = null;
        }
@@ -189,7 +191,7 @@ boil.bedroom.prototype = {
             ptag.body.velocity.x=-300;
             ptag.body.velocity.y=0;
             ptag.animations.play('walk', 10, true);
-            ptag.scale.setTo(.35,.35);
+            ptag.scale.setTo(.33,.33);
             idleFrame = sideIdle;
             ikea = null;
        }
@@ -222,7 +224,7 @@ boil.bedroom.prototype = {
             var key = keylist[i];
             for(var j=0; j<furniture[key].length;j++){
                 var tiles = furniture[key][j];
-                map.setCollision(tiles[0],tiles[1],'bedroom');
+                map.setCollision(tiles[0],tiles[1],'sbedroom');
             }
         }
     }
