@@ -5,6 +5,8 @@ var upIdle = 0
 var downIdle = 6
 var sideIdle = 3
 
+var selectedChoice = 1
+
 boil.cafeoutside.prototype = {
     preload: function(){
         game.load.tilemap('cafeoutsideTilemap', 'Assets/Backgrounds/cafeoutsideTilemap.json', null,Phaser.Tilemap.TILED_JSON);
@@ -12,6 +14,7 @@ boil.cafeoutside.prototype = {
         game.load.image('bar', 'Assets/Backgrounds/bar.png');
         game.load.spritesheet('ptag', 'Assets/Spritesheets/ptag.png',440,750);
         game.load.spritesheet('textbox','Assets/Spritesheets/textbox.png', 1500,470);
+        game.load.image('arrow','Assets/Spritesheets/arrow.jpg');
 
     },
     create: function(){
@@ -188,7 +191,19 @@ boil.cafeoutside.prototype = {
             ptag.body.velocity.y=0;
         }
 
-
+        if (choice1Text && choice2Text) {
+            console.log(selectedChoice)
+            if(game.input.keyboard.isDown(Phaser.Keyboard.LEFT) || game.input.keyboard.isDown(Phaser.Keyboard.RIGHT)){
+                
+                if(selectedChoice===1){
+                    selectedChoice=2
+                }
+                else{
+                    selectedChoice=1
+                }
+                console.log(selectedChoice)
+            }
+        }
      
 },
       furnitureType: function(index){

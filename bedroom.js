@@ -5,7 +5,31 @@ var upIdle = 0
 var downIdle = 6
 var sideIdle = 3
 
+var selectedChoice = 1
+var choice1Text, choice2Text
+
 boil.bedroom.prototype = {
+    
+    toggleChoice: function() {
+        
+        if(choice1Text && choice2Text) {
+            if(selectedChoice===1){
+                selectedChoice=2
+                
+                // Move arrow to right choice
+                
+            }
+            else{
+                selectedChoice=1
+                
+                // move arrow to left choice
+            }
+            console.log(selectedChoice) 
+        }
+        
+       
+    },
+    
     preload: function(){
         game.load.tilemap('bedroomTilemap', 'Assets/Backgrounds/bedroomTilemap.json', null,Phaser.Tilemap.TILED_JSON);
         game.load.image('bedroomTileset', 'Assets/Backgrounds/bedroomTileset.png');
@@ -16,8 +40,13 @@ boil.bedroom.prototype = {
     },
     create: function(){
         var enter = this.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
-        
         enter.onDown.add(changeText, this);
+        
+        var left = this.input.keyboard.addKey(Phaser.Keyboard.LEFT);
+        left.onDown.add(this.toggleChoice, this);
+        
+        var right = this.input.keyboard.addKey(Phaser.Keyboard.RIGHT);
+        right.onDown.add(this.toggleChoice, this);
         
         game.physics.startSystem(Phaser.Physics.ARCADE);
         game.world.setBounds(0,0, 1250,1250);
@@ -201,6 +230,7 @@ boil.bedroom.prototype = {
             ptag.body.velocity.x=0;
             ptag.body.velocity.y=0;
         }
+
 
 
      
