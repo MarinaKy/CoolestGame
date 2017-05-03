@@ -72,12 +72,12 @@ boil.pepbedroom.prototype = {
             ],
             lamp: [
                 [347,372],
-                [373,374]
+                [373,374],
             ],
             shoes: [
                 [450,451],
                 [476,501],
-                [526,551]
+                [526,551],
             ],
 //            couch: [
 //                [527,552],
@@ -92,8 +92,8 @@ boil.pepbedroom.prototype = {
              
             desk: {
                 dialog: [
-                    '.',
-
+                    'You rummaged through her desk.',
+                    'You find nothing but disappointment...',
 
                 ],
                 sprite: null
@@ -119,7 +119,7 @@ boil.pepbedroom.prototype = {
             },
             shoes:{
                 dialog: [
-                    'Her smile shines brighter than any lamp',
+                    'You like the smell of her feet',
                          ],
                 sprite: null
             },
