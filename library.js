@@ -83,35 +83,46 @@ boil.library.prototype = {
     
         
         furniture = {
-            shelf: [
-                [56,58],
+            shelf1: [
+                [57,58],
                 [60,62],
-                [64,65]
+                [64,65],
+                [66,67],
+                [68,69],
             ],
-            lamp: [
-                [66,68]
+            shelf2: [
+                [484,485],
+                [486,487],
+                [488,489],
+                [490,491],
+                [492,493],
+                [494,495]
             ],
-////            plant: [
-////                [36,39]
-////            ],
-            bed: [
-                [153,178],
-                [203,228],
-                [253,278]
+            desk1: [
+                [223,224],
+                [248,273],
+                [298,323]
             ],
             
-            sammy: [
-                [120,124]
+            desk2: [
+                [523,548],
+                [573,598],
+                [623,648],
+                [673,524]
             ],
-            counter: [
-                [354,355,],
-                [356,557],
-                [358,360]
+            checkout: [
+                [628,629],
+                [630,631],
+                [656,681],
+                [706,731],
             ],
-            couch: [
-                [477,502],
-                [527,552],
-                [577,602]
+            table: [
+                [200,201],
+                [202,203],
+                [204,205],
+                [81,106],
+                [131,156],
+                [181,206],
             ],
             
         };
@@ -119,65 +130,49 @@ boil.library.prototype = {
         this.setupFurniture();
 //
         text = {
-             sammy:{
+             shelf1:{
                  dialog: [
-                     'Oh!!! Hey there! I’m Sammy the Salmon. New to the game, huh??? Press SPACE to see what I have to say next!',
-                     'Good job! (Amateur...)',
-                     'Look at your keyboard. Now look at me. Now keep looking at me. Aren’t I just super amazing?',
-                     '…',
-                     'The answer is YES by the way. Use the ARROW KEYS to pick YES and SPACEBAR to confirm your choice.|Yes|No'
+                     'You like to come here sometimes and pretend that you can read',
                 ],
-                 response1: 'Psh! I knew it!',
-                 response2: 'Haha, what a funny joke. It was a joke...right?',
-                 sprite: 'talksammy'
+                 sprite: 'null'
              },
            
-            shelf: {
+            shelf2: {
                 dialog: [
-                    'You burned almost all of the books last winter',
-                    ' But it’s okay,',
-                    'You’re illiterate anyway.',
+                    '...why are you even here?',
+
                 ],
                 sprite: null
             },
-            lamp:{
+            desk1:{
                 dialog: [
-                    'This lamp would have been the light of your life',
-                    'if it worked',
+                    ' You hate studying',
+                    'oh wait....',
+                    'You are too stupid to study'
                          ],
                 sprite: null
             },
-            bed:{
+            desk2:{
                 dialog: [
-                    'You’ve had this bed your whole life',
-                    'You have to curl up into a ball to sleep on it, but you’ve never had enough money to buy another one.',
+                    'Still too stupid'
                 ],
                 sprite: null
             }, 
-            counter:{
+            
+            checkout:{
                 dialog:[
-                    'You own a single cup',
-                    '(because you have no friends)',
+                    'The librarian saw you coming and quickly escaped',
+                    'No one likes you',
                 ],
                 sprite: null
             },
-            couch:{
+            table:{
                 dialog:[
-                    'You found this couch on the sidewalk a few years ago.',
-                    'There are suspicious stains all over it...'
+                    'You like this table',
+                    'There is always free gum on the bottom of it.'
                 ],
                 sprite: null
             },
-//            wedge: {
-//                dialog: [
-//                    'You find a packet of mushrooms wedged between the mattress and the frame of the bed.',
-//                    'They look old, but at this point you’re too hungry to care.',
-//                    'You eat the mushrooms'
-//                ],
-//                sprite: 'shrooms',
-//                //end: 'pop',
-//                stateChange: 'olibrary'              
-//            }
 //            
         }
     },
