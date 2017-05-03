@@ -228,7 +228,7 @@ boil.cafe.prototype = {
 
 
  function changeText(){
-        console.log('ikea', ikea);
+        console.log('ikeacccccc', ikea);
         if(textbox && ikea && wordIndex < text[ikea].dialog.length-1){
            wordIndex++ 
            var newText = text[ikea].dialog[wordIndex]

@@ -97,8 +97,10 @@ boil.bedroom.prototype = {
                      'Good job! (Amateur...)',
                      'Look at your keyboard. Now look at me. Now keep looking at me. Aren’t I just super amazing?',
                      '…',
-                     'The answer is YES by the way. Use the ARROW KEYS to pick YES and SPACEBAR to confirm your choice.'
+                     'The answer is YES by the way. Use the ARROW KEYS to pick YES and SPACEBAR to confirm your choice.|Yes|No'
                 ],
+                 response1: 'Psh! I knew it!',
+                 response2: 'Haha, what a funny joke. It was a joke...right?',
                  sprite: 'talksammy'
              },
             shelf: {
@@ -238,10 +240,14 @@ boil.bedroom.prototype = {
 
 
  function changeText(){
-        console.log('ikea', ikea);
+        
+     
+     
+        console.log('ikea4444', ikea);
         if(textbox && ikea && wordIndex < text[ikea].dialog.length-1){
            wordIndex++ 
-           var newText = text[ikea].dialog[wordIndex]
+           console.log('first', ikea);
+           var newText = text[ikea].dialog[wordIndex];
            words.setText(newText)
         }
         else if(textbox && ikea && wordIndex == text[ikea].dialog.length-1 && text[ikea].stateChange){
@@ -276,7 +282,16 @@ boil.bedroom.prototype = {
             };
             
             wordIndex = 0
-            words = game.add.text(textX+textMargin,textY+textMargin,text[ikea].dialog[wordIndex],style);
+            
+            dialogSplit = strsplit(text[ikea].dialog[wordIndex],'|');
+            var newText = text[ikea].dialog[wordIndex];
+            if(dialogSplit.length===3){
+                console.log('second', ikea);
+               newText = dialogSplit[0]
+            }
+            
+            
+            words = game.add.text(textX+textMargin,textY+textMargin,newText,style);
             
             if(text[ikea].sprite !== null){
                 talksprite = game.add.sprite(400,550,text[ikea].sprite);

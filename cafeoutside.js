@@ -224,10 +224,24 @@ boil.cafeoutside.prototype = {
 
 
  function changeText(){
-        console.log('ikea', ikea);
+        console.log('ikea oooooo', ikea);
         if(textbox && ikea && wordIndex < text[ikea].dialog.length-1){
            wordIndex++ 
-           var newText = text[ikea].dialog[wordIndex]
+           
+           var newText = text[ikea].dialog[wordIndex];
+           dialogSplit = newText.split('|')
+            
+            if(dialogSplit.length===3){
+               newText = dialogSplit[0]
+               choice1Text.setText(dialogSplit[1])
+               choice2Text.setText(dialogSplit[2])
+            }
+            else{
+                choice1Text.setText('');
+                choice2Text.setText('')
+            }
+           
+//           var newText = text[ikea].dialog[wordIndex]
            words.setText(newText)
         }
         else if(textbox && ikea && wordIndex == text[ikea].dialog.length-1 && text[ikea].stateChange){
@@ -239,6 +253,8 @@ boil.cafeoutside.prototype = {
             textbox=null;
             words.destroy();
             talksprite.destroy();
+            choice1Text.destroy();
+            choice2Text.destroy();
         }
     
         else if(ikea!== undefined){
@@ -261,8 +277,16 @@ boil.cafeoutside.prototype = {
                 wordWrapWidth : textbox.width-(2*textMargin)
             };
             
+            console.log('add text', ikea);
+            
             wordIndex = 0
             words = game.add.text(textX+textMargin,textY+textMargin,text[ikea].dialog[wordIndex],style);
+            
+            var choiceVertOffset = 200
+            var choiceBaseOffset = textX+textMargin+145
+            
+            choice1Text = game.add.text(choiceBaseOffset,textY+textMargin+choiceVertOffset,'',style)
+            choice2Text = game.add.text(choiceBaseOffset + 300,textY+textMargin+choiceVertOffset,'',style)
             
             if(text[ikea].sprite !== null){
                 talksprite = game.add.sprite(400,475,text[ikea].sprite);
