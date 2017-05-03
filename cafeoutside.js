@@ -97,7 +97,7 @@ boil.cafeoutside.prototype = {
                      'Entering: Apartment 01',
                 ],
                  sprite: null,
-                 stateChange: 'pepbedroom'
+                stateChange: 'sbedroom'
             },
              02:{
                  dialog: [
@@ -118,9 +118,26 @@ boil.cafeoutside.prototype = {
                      'Entering: Apartment 04',
                 ],
                  sprite: null,
-                 stateChange: 'sbedroom'
+
+                 stateChange: 'pepbedroom'
             },
-            
+            window:{
+                 dialog: [
+                     'Who is that ugly person?',
+                     'Oh wait',
+                     'It’s just your reflection',
+                ],
+                 sprite: null,
+            },
+            stair:{
+                 dialog: [
+                    'These stairs go higher than your self esteem',
+                ],
+                 sprite: null,
+
+                 stateChange: 'sbedroom'
+
+            },
 //            couch:{
 //                dialog:[
 //                    'You found this couch on the sidewalk a few years ago.',
