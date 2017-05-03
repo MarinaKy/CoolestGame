@@ -96,9 +96,7 @@ boil.sbedroom.prototype = {
              
             shelf: {
                 dialog: [
-                    'You burned almost all of the books last winter',
-                    ' But it’s okay,',
-                    'You’re illiterate anyway.',
+                     'Shameful', 
                 ],
                 sprite: null
             },
@@ -126,6 +124,21 @@ boil.sbedroom.prototype = {
             tree:{
                 dialog:[
                     '....It looks more alive than you…..',
+                ],
+                sprite: null
+            },
+            Clock:{
+                dialog:[
+                   'You never learned how to read the time…',
+                   'You pity yourself',
+                   '....cuz no one else will….',
+                ],
+                sprite: null
+            },
+             Counter:{
+                dialog:[
+                  'SOMEONE know how to decorate',
+                  '(that someone is not you)',
                 ],
                 sprite: null
             },
