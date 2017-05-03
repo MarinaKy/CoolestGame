@@ -119,53 +119,17 @@ boil.park.prototype = {
         this.setupFurniture();
 //
         text = {
-             sammy:{
-                 dialog: [
-                     'Oh!!! Hey there! I’m Sammy the Salmon. New to the game, huh??? Press SPACE to see what I have to say next!',
-                     'Good job! (Amateur...)',
-                     'Look at your keyboard. Now look at me. Now keep looking at me. Aren’t I just super amazing?',
-                     '…',
-                     'The answer is YES by the way. Use the ARROW KEYS to pick YES and SPACEBAR to confirm your choice.|Yes|No'
-                ],
-                 response1: 'Psh! I knew it!',
-                 response2: 'Haha, what a funny joke. It was a joke...right?',
-                 sprite: 'talksammy'
-             },
-           
-            shelf: {
+            Fence: {
                 dialog: [
-                    'You burned almost all of the books last winter',
-                    ' But it’s okay,',
-                    'You’re illiterate anyway.',
+                    'This isn’t the only barrier holding you back in life',
                 ],
                 sprite: null
             },
-            lamp:{
+           Bench:{
                 dialog: [
-                    'This lamp would have been the light of your life',
-                    'if it worked',
+                    'This is the only thing that will support you in the darkest of times',
+
                          ],
-                sprite: null
-            },
-            bed:{
-                dialog: [
-                    'You’ve had this bed your whole life',
-                    'You have to curl up into a ball to sleep on it, but you’ve never had enough money to buy another one.',
-                ],
-                sprite: null
-            }, 
-            counter:{
-                dialog:[
-                    'You own a single cup',
-                    '(because you have no friends)',
-                ],
-                sprite: null
-            },
-            couch:{
-                dialog:[
-                    'You found this couch on the sidewalk a few years ago.',
-                    'There are suspicious stains all over it...'
-                ],
                 sprite: null
             },
 //            wedge: {
