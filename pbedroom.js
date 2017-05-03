@@ -80,15 +80,23 @@ boil.pbedroom.prototype = {
                 [260,285],
                 
             ],
-//            counter: [
-//                [354,355,],
-//                [356,557],
-//                [358,360]
-//            ],
-//            couch: [
-//                [527,552],
-//                [577,602]
-//            ],
+            desk: [
+                [525,501,],
+                [502,503],
+                [504,530],
+                [531,532,],
+                [533,558],
+                [583,608],
+                
+            ],
+            table: [
+                [191,192],
+                [193,194],
+                [195,196,],
+            ],
+            crevice:[
+                [198,199],
+            ],
             
         };
 //        
@@ -115,7 +123,7 @@ boil.pbedroom.prototype = {
                 ],
                 sprite: null
             }, 
-            Desk:{
+            desk:{
                 dialog:[
                     'Trying to snoop on her laptop?',
                     'You’re disgusting',
@@ -123,13 +131,20 @@ boil.pbedroom.prototype = {
                 ],
                 sprite: null
             },
-            Table:{
+            table:{
                 dialog:[
                     'A table for two....',
                     '...something you will never have...',
                 ],
                 sprite: null
             },
+          crevice:{
+                dialog:[
+                    'You are too fat to fit through this crevice',
+                ],
+                sprite: null
+            }, 
+        
 //            wedge: {
 //                dialog: [
 //                    'You find a packet of mushrooms wedged between the mattress and the frame of the bed.',
