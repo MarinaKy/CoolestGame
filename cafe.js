@@ -126,13 +126,7 @@ boil.cafe.prototype = {
 //                stateChange: 'oBedroom'              
 //            }
      
-//             cindy:{
-//                 dialog: [
-//                     '?!?!?!?!?!?!?!', 
-//                ],
-//                 sprite: 'cindy'
-//             },
-////
+//            
 ////    
 //             cindy:{
 //                 dialog: [
@@ -265,7 +259,7 @@ boil.cafe.prototype = {
 
 
  function changeText(){
-        console.log('ikeacccccc', ikea);
+        console.log('ikea', ikea);
         if(textbox && ikea && wordIndex < text[ikea].dialog.length-1){
            wordIndex++ 
            var newText = text[ikea].dialog[wordIndex]
