@@ -51,38 +51,34 @@ boil.pepbedroom.prototype = {
     
         
         furniture = {
-            shelf: [
-                [86,87],
-                [88,89,90]
+            desk: [
+                [203,204],
+                [205,206,],
+                [207,208],
+                
+                
             ],
-            lamp: [
-                [125,126,127]
+            shelf: [
+                [87,88],
+                [89,90]
             ],
 ////            plant: [
 ////                [36,39]
 ////            ],
             bed: [
-                [155,180],
-                [205,230],
-                [255,280],
-                [303,305],
-                [305,306],
-                [307,308],
-                [309,310],
-                [110,135],
-                [160,185],
-                [210,235],
-                [260,285],
-                
+                [218,243],
+                [244,245],
+                [246,247],
             ],
-//            sammy: [
-//                [120,124]
-//            ],
-//            counter: [
-//                [354,355,],
-//                [356,557],
-//                [358,360]
-//            ],
+            lamp: [
+                [347,372],
+                [373,374]
+            ],
+            shoes: [
+                [450,451],
+                [476,501],
+                [526,551]
+            ],
 //            couch: [
 //                [527,552],
 //                [577,602]
@@ -94,17 +90,17 @@ boil.pepbedroom.prototype = {
 //
         text = {
              
-            shelf: {
+            desk: {
                 dialog: [
-                    'Why are you even standing here.',
+                    '.',
 
 
                 ],
                 sprite: null
             },
-            lamp:{
+            shelf:{
                 dialog: [
-                    'Her smile shines brighter than any lamp',
+                     'Why are you even standing here.',
                          ],
                 sprite: null
             },
@@ -115,7 +111,18 @@ boil.pepbedroom.prototype = {
                 ],
                 sprite: null
             }, 
-             
+            lamp:{
+                dialog: [
+                    'Her smile shines brighter than any lamp',
+                         ],
+                sprite: null
+            },
+            shoes:{
+                dialog: [
+                    'Her smile shines brighter than any lamp',
+                         ],
+                sprite: null
+            },
         }
     },
     update: function(){
