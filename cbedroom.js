@@ -93,50 +93,49 @@ boil.sbedroom.prototype = {
         this.setupFurniture();
 //
         text = {
-             
+             sammy:{
+                 dialog: [
+                     'Oh!!! Hey there! I’m Sammy the Salmon. New to the game, huh??? Press SPACE to see what I have to say next!',
+                     'Good job! (Amateur...)',
+                     'Look at your keyboard. Now look at me. Now keep looking at me. Aren’t I just super amazing?',
+                     '…',
+                     'The answer is YES by the way. Use the ARROW KEYS to pick YES and SPACEBAR to confirm your choice.'
+                ],
+                 sprite: 'talksammy'
+             },
             shelf: {
                 dialog: [
-                   'Shameful',
+                    'You burned almost all of the books last winter',
+                    ' But it’s okay,',
+                    'You’re illiterate anyway.',
                 ],
                 sprite: null
             },
             lamp:{
                 dialog: [
-                     'You wonder if it works like a lamp',
+                    'This lamp would have been the light of your life',
+                    'if it worked',
                          ],
                 sprite: null
             },
             bed:{
                 dialog: [
-                    'You can see the indent of where she slept',
+                    'You’ve had this bed your whole life',
+                    'You have to curl up into a ball to sleep on it, but you’ve never had enough money to buy another one.',
                 ],
                 sprite: null
             }, 
             counter:{
                 dialog:[
-                    'SOMEONE know how to decorate',
-                    'that someone is not you)',
+                    'You own a single cup',
+                    '(because you have no friends)',
                 ],
                 sprite: null
             },
-            clock:{
+            couch:{
                 dialog:[
-                    'You never learned how to read the time…',
-                    'You pity yourself',
-                    '....cuz no one else will….',
-                ],
-                sprite: null
-            },
-             Tree:{
-                dialog:[
-                    '....It looks more alive than you…..',
-                ],
-                sprite: null
-            },
-             platform:{
-                dialog:[
-                  'You think about how Cindys feet have been on this platform',
-                  '....Creep....',    
+                    'You found this couch on the sidewalk a few years ago.',
+                    'There are suspicious stains all over it...'
                 ],
                 sprite: null
             },
