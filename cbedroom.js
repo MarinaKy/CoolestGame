@@ -104,29 +104,28 @@ boil.sbedroom.prototype = {
             },
             lamp:{
                 dialog: [
-                    'This lamp would have been the light of your life',
-                    'if it worked',
+                   'You wonder if it works like a lamp',
+
                          ],
                 sprite: null
             },
             bed:{
                 dialog: [
-                    'You’ve had this bed your whole life',
-                    'You have to curl up into a ball to sleep on it, but you’ve never had enough money to buy another one.',
-                ],
+                    'You can see the indent of where she slept',
+
                 sprite: null
             }, 
             counter:{
                 dialog:[
-                    'You own a single cup',
-                    '(because you have no friends)',
+                    '......You feel like a stalker….',
+                    '......You kinda are acting like a stalker right now',
+
                 ],
                 sprite: null
             },
-            couch:{
+            tree:{
                 dialog:[
-                    'You found this couch on the sidewalk a few years ago.',
-                    'There are suspicious stains all over it...'
+                    '....It looks more alive than you…..',
                 ],
                 sprite: null
             },
