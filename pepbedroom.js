@@ -33,7 +33,7 @@ boil.pepbedroom.prototype = {
         
         game.physics.enable(ptag);
         ptag.body.collideWorldBounds=true;
-        ptag.scale.setTo(-.33,.33);
+        ptag.scale.setTo(-.4,.4);
         ptag.anchor.setTo(0.5);
         
         var collisiondata = map.layers[1].data; 
@@ -133,7 +133,7 @@ boil.pepbedroom.prototype = {
             ptag.body.velocity.y =300;
             ptag.body.velocity.x=0;
             ptag.animations.play('walkd', 10,true);
-            ptag.scale.setTo(.33,.33);
+            ptag.scale.setTo(.4,.4);
             idleFrame = downIdle;
             ikea = null;
         }
@@ -141,7 +141,7 @@ boil.pepbedroom.prototype = {
             ptag.body.velocity.y =-300;
             ptag.body.velocity.x=0;
             ptag.animations.play('walku',10,true);
-            ptag.scale.setTo(.33,.33);
+            ptag.scale.setTo(.4,.4);
             idleFrame = upIdle;
             ikea = null;
         }
@@ -149,7 +149,7 @@ boil.pepbedroom.prototype = {
             ptag.body.velocity.x=300;
             ptag.body.velocity.y=0;
             ptag.animations.play('walk',10, true);
-            ptag.scale.setTo(-.33,.33);
+            ptag.scale.setTo(-.4,.4);
             idleFrame = sideIdle;
             ikea = null;
        }
@@ -157,7 +157,7 @@ boil.pepbedroom.prototype = {
             ptag.body.velocity.x=-300;
             ptag.body.velocity.y=0;
             ptag.animations.play('walk', 10, true);
-            ptag.scale.setTo(.33,.33);
+            ptag.scale.setTo(.4,.4);
             idleFrame = sideIdle;
             ikea = null;
        }
