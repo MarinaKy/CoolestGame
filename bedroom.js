@@ -137,6 +137,7 @@ boil.bedroom.prototype = {
                  response2: 'Haha, what a funny joke. It was a joke...right?',
                  sprite: 'talksammy'
              },
+           
             shelf: {
                 dialog: [
                     'You burned almost all of the books last winter',

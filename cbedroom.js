@@ -93,16 +93,7 @@ boil.sbedroom.prototype = {
         this.setupFurniture();
 //
         text = {
-             sammy:{
-                 dialog: [
-                     'Oh!!! Hey there! I’m Sammy the Salmon. New to the game, huh??? Press SPACE to see what I have to say next!',
-                     'Good job! (Amateur...)',
-                     'Look at your keyboard. Now look at me. Now keep looking at me. Aren’t I just super amazing?',
-                     '…',
-                     'The answer is YES by the way. Use the ARROW KEYS to pick YES and SPACEBAR to confirm your choice.'
-                ],
-                 sprite: 'talksammy'
-             },
+             
             shelf: {
                 dialog: [
                     'You burned almost all of the books last winter',
@@ -113,29 +104,28 @@ boil.sbedroom.prototype = {
             },
             lamp:{
                 dialog: [
-                    'This lamp would have been the light of your life',
-                    'if it worked',
+                   'You wonder if it works like a lamp',
+
                          ],
                 sprite: null
             },
             bed:{
                 dialog: [
-                    'You’ve had this bed your whole life',
-                    'You have to curl up into a ball to sleep on it, but you’ve never had enough money to buy another one.',
-                ],
+                    'You can see the indent of where she slept',
+
                 sprite: null
             }, 
             counter:{
                 dialog:[
-                    'You own a single cup',
-                    '(because you have no friends)',
+                    '......You feel like a stalker….',
+                    '......You kinda are acting like a stalker right now',
+
                 ],
                 sprite: null
             },
-            couch:{
+            tree:{
                 dialog:[
-                    'You found this couch on the sidewalk a few years ago.',
-                    'There are suspicious stains all over it...'
+                    '....It looks more alive than you…..',
                 ],
                 sprite: null
             },

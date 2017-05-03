@@ -60,7 +60,10 @@ boil.cafe.prototype = {
             }
             
         }
-    
+//    
+//        if (ptag.y>1073.75){
+//     changeState('cafeoutside.js');
+//     }
         
         furniture = {
 //            shelf: [

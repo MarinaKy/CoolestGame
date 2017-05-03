@@ -154,7 +154,7 @@ boil.pbedroom.prototype = {
             ikea = self.furnitureType(obj2.index);
         })
                 
-     if (ptag.x>1161){
+     if (ptag.y>1116){
      changeState('cafeoutside');
      }
     

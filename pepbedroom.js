@@ -93,63 +93,29 @@ boil.sbedroom.prototype = {
         this.setupFurniture();
 //
         text = {
-             sammy:{
-                 dialog: [
-                     'Oh!!! Hey there! I’m Sammy the Salmon. New to the game, huh??? Press SPACE to see what I have to say next!',
-                     'Good job! (Amateur...)',
-                     'Look at your keyboard. Now look at me. Now keep looking at me. Aren’t I just super amazing?',
-                     '…',
-                     'The answer is YES by the way. Use the ARROW KEYS to pick YES and SPACEBAR to confirm your choice.'
-                ],
-                 sprite: 'talksammy'
-             },
+             
             shelf: {
                 dialog: [
-                    'You burned almost all of the books last winter',
-                    ' But it’s okay,',
-                    'You’re illiterate anyway.',
+                    'Why are you even standing here.',
+
+
                 ],
                 sprite: null
             },
             lamp:{
                 dialog: [
-                    'This lamp would have been the light of your life',
-                    'if it worked',
+                    'Her smile shines brighter than any lamp',
                          ],
                 sprite: null
             },
             bed:{
                 dialog: [
-                    'You’ve had this bed your whole life',
-                    'You have to curl up into a ball to sleep on it, but you’ve never had enough money to buy another one.',
+                   'You wish you could sleep in a bed like this ( ͡° ͜ʖ ͡°)',
+
                 ],
                 sprite: null
             }, 
-            counter:{
-                dialog:[
-                    'You own a single cup',
-                    '(because you have no friends)',
-                ],
-                sprite: null
-            },
-            couch:{
-                dialog:[
-                    'You found this couch on the sidewalk a few years ago.',
-                    'There are suspicious stains all over it...'
-                ],
-                sprite: null
-            },
-//            wedge: {
-//                dialog: [
-//                    'You find a packet of mushrooms wedged between the mattress and the frame of the bed.',
-//                    'They look old, but at this point you’re too hungry to care.',
-//                    'You eat the mushrooms'
-//                ],
-//                sprite: 'shrooms',
-//                //end: 'pop',
-//                stateChange: 'osbedroom'              
-//            }
-//            
+             
         }
     },
     update: function(){
