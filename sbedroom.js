@@ -117,8 +117,8 @@ boil.sbedroom.prototype = {
             }, 
             table: {
                 dialog: [
-                    'You did not know that you could stoop so low....'
-                    '...oh wait...you cant...'
+                    'You did not know that you could stoop so low....',
+                    '...oh wait...you cant...',
                 ]
             },
           
