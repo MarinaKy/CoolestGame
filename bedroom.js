@@ -5,7 +5,31 @@ var upIdle = 0
 var downIdle = 6
 var sideIdle = 3
 
+var selectedChoice = 1
+var choice1Text, choice2Text
+
 boil.bedroom.prototype = {
+    
+    toggleChoice: function() {
+        
+        if(choice1Text && choice2Text) {
+            if(selectedChoice===1){
+                selectedChoice=2
+                
+                // Move arrow to right choice
+                
+            }
+            else{
+                selectedChoice=1
+                
+                // move arrow to left choice
+            }
+            console.log(selectedChoice) 
+        }
+        
+       
+    },
+    
     preload: function(){
         game.load.tilemap('bedroomTilemap', 'Assets/Backgrounds/bedroomTilemap.json', null,Phaser.Tilemap.TILED_JSON);
         game.load.image('bedroomTileset', 'Assets/Backgrounds/bedroomTileset.png');
@@ -16,8 +40,13 @@ boil.bedroom.prototype = {
     },
     create: function(){
         var enter = this.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
-        
         enter.onDown.add(changeText, this);
+        
+        var left = this.input.keyboard.addKey(Phaser.Keyboard.LEFT);
+        left.onDown.add(this.toggleChoice, this);
+        
+        var right = this.input.keyboard.addKey(Phaser.Keyboard.RIGHT);
+        right.onDown.add(this.toggleChoice, this);
         
         game.physics.startSystem(Phaser.Physics.ARCADE);
         game.world.setBounds(0,0, 1250,1250);
@@ -97,8 +126,10 @@ boil.bedroom.prototype = {
                      'Good job! (Amateur...)',
                      'Look at your keyboard. Now look at me. Now keep looking at me. Aren’t I just super amazing?',
                      '…',
-                     'The answer is YES by the way. Use the ARROW KEYS to pick YES and SPACEBAR to confirm your choice.'
+                     'The answer is YES by the way. Use the ARROW KEYS to pick YES and SPACEBAR to confirm your choice.|Yes|No'
                 ],
+                 response1: 'Psh! I knew it!',
+                 response2: 'Haha, what a funny joke. It was a joke...right?',
                  sprite: 'talksammy'
              },
             shelf: {
@@ -158,7 +189,7 @@ boil.bedroom.prototype = {
         })
                 
      if (ptag.x>1161){
-     changeState('cafeoutside');
+     changeState('street');
      }
     
         if(game.input.keyboard.isDown(Phaser.Keyboard.S)){
@@ -201,6 +232,7 @@ boil.bedroom.prototype = {
         }
 
 
+
      
 },
       furnitureType: function(index){
@@ -238,10 +270,14 @@ boil.bedroom.prototype = {
 
 
  function changeText(){
-        console.log('ikea', ikea);
+        
+     
+     
+        console.log('ikea4444', ikea);
         if(textbox && ikea && wordIndex < text[ikea].dialog.length-1){
            wordIndex++ 
-           var newText = text[ikea].dialog[wordIndex]
+           console.log('first', ikea);
+           var newText = text[ikea].dialog[wordIndex];
            words.setText(newText)
         }
         else if(textbox && ikea && wordIndex == text[ikea].dialog.length-1 && text[ikea].stateChange){
@@ -276,7 +312,16 @@ boil.bedroom.prototype = {
             };
             
             wordIndex = 0
-            words = game.add.text(textX+textMargin,textY+textMargin,text[ikea].dialog[wordIndex],style);
+            
+            dialogSplit = strsplit(text[ikea].dialog[wordIndex],'|');
+            var newText = text[ikea].dialog[wordIndex];
+            if(dialogSplit.length===3){
+                console.log('second', ikea);
+               newText = dialogSplit[0]
+            }
+            
+            
+            words = game.add.text(textX+textMargin,textY+textMargin,newText,style);
             
             if(text[ikea].sprite !== null){
                 talksprite = game.add.sprite(400,550,text[ikea].sprite);

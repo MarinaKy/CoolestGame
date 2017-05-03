@@ -1,14 +1,17 @@
 boil.street = function(){};
 
-var ptag, street,collisions, map, furniture, text, textbox, ikea, idleFrame, hasAwoken=false;
+var ptag, street,collisions,x,y map, furniture, text, textbox, ikea, idleFrame;
 var upIdle = 0
 var downIdle = 6
 var sideIdle = 3
 
 boil.street.prototype = {
+    init: function(){
+        console.log(x + ' ' + y)
+    };
     preload: function(){
         game.load.tilemap('streetTilemap', 'Assets/Backgrounds/streetTilemap.json', null,Phaser.Tilemap.TILED_JSON);
-        game.load.image('streetTileset', 'Assets/Backgrounds/streetTileset.png');
+        game.load.image('streetTileset', 'Assets/Backgrounds/streetTileset.png',1250,3750);
 //        game.load.image('bar', 'Assets/Backgrounds/bar.png');
         game.load.spritesheet('ptag', 'Assets/Spritesheets/ptag.png',440,750);
         game.load.spritesheet('textbox','Assets/Spritesheets/textbox.png', 1500,470);
@@ -19,34 +22,23 @@ boil.street.prototype = {
         enter.onDown.add(changeText, this);
         
         game.physics.startSystem(Phaser.Physics.ARCADE);
-        game.world.setBounds(0,0, 1250,1250);
+        game.world.setBounds(0,0, 1250,3750);
         game.stage.backgroundColor = '#000000';
         console.log('You are in the street state');        
         map = game.add.tilemap('streetTilemap');
         map.addTilesetImage('streetTileset'); 
         street = map.createLayer('street');
+        ptag = game.add.sprite(x, y, 'ptag');
         ptag = game.add.sprite(110,1065, 'ptag');
-         if(!hasAwoken){
-            cindy = game.add.sprite(400,1090, 'cindy');
-        }
-        else cindy = game.add.sprite(856,870, 'cindy')
-//        cindy = game.add.sprite(game.world.centerX+350,game.world.centerY+300,'cindy');
-        cindy.scale.setTo(.4,.4);
-        cindy.animations.add('stand',[0,1]);
-        cindy.animations.play('stand',3, true);
         ptag.animations.add('walk',[3,4,5]);
         ptag.animations.add('walkd',[6,7,8]);
         ptag.animations.add('walku',[0,1,2]);
         
         game.physics.enable(ptag);
-        game.physics.enable(cindy);
         ptag.body.collideWorldBounds=true;
-        ptag.scale.setTo(-.4,.4);
+        ptag.scale.setTo(-.3,.3);
         ptag.anchor.setTo(0.5);
-        cindy.anchor.setTo(0.6);
-        if(!hasAwoken){
-            cindy.angle = 90 
-        }
+        game.camera.follow(ptag);
         var collisiondata = map.layers[1].data; 
         for(var i=0;i<collisiondata.length;i++){
             for(var j=0;j<collisiondata[i].length;j++){
@@ -128,18 +120,21 @@ boil.street.prototype = {
         }
     },
     update: function(){
-         if(cindy.angle>0){
-            cindy.angle--
-            cindy.x--
-        }
-        else {
-            hasAwoken=true
+        var self = this;
+            game.physics.arcade.collide(ptag, street, function(obj1, obj2) { 
+            console.log('collided', self.furnitureType(obj2.index));
+            ikea = self.furnitureType(obj2.index);
+        })
+                
+     if (ptag.x>1161){
+     changeState('cafeoutside');
+     }
     
         if(game.input.keyboard.isDown(Phaser.Keyboard.S)){
             ptag.body.velocity.y =300;
             ptag.body.velocity.x=0;
             ptag.animations.play('walkd', 10,true);
-            ptag.scale.setTo(.4,.4);
+            ptag.scale.setTo(.33,.33);
             idleFrame = downIdle;
             ikea = null;
         }
@@ -147,7 +142,7 @@ boil.street.prototype = {
             ptag.body.velocity.y =-300;
             ptag.body.velocity.x=0;
             ptag.animations.play('walku',10,true);
-            ptag.scale.setTo(.4,.4);
+            ptag.scale.setTo(.33,.33);
             idleFrame = upIdle;
             ikea = null;
         }
@@ -155,7 +150,7 @@ boil.street.prototype = {
             ptag.body.velocity.x=300;
             ptag.body.velocity.y=0;
             ptag.animations.play('walk',10, true);
-            ptag.scale.setTo(-.4,.4);
+            ptag.scale.setTo(-.33,.33);
             idleFrame = sideIdle;
             ikea = null;
        }
@@ -163,7 +158,7 @@ boil.street.prototype = {
             ptag.body.velocity.x=-300;
             ptag.body.velocity.y=0;
             ptag.animations.play('walk', 10, true);
-            ptag.scale.setTo(.4,.4);
+            ptag.scale.setTo(.33,.33);
             idleFrame = sideIdle;
             ikea = null;
        }
@@ -173,12 +168,8 @@ boil.street.prototype = {
             ptag.body.velocity.x=0;
             ptag.body.velocity.y=0;
         }
-        var self = this;
-            game.physics.arcade.collide(ptag, street, function(obj1, obj2) { 
-            console.log('collided', self.furnitureType(obj2.index));
-            ikea = self.furnitureType(obj2.index);
-        })
-        }
+
+
      
 },
       furnitureType: function(index){
@@ -203,22 +194,11 @@ boil.street.prototype = {
                 map.setCollision(tiles[0],tiles[1],'street');
             }
         }
-    },    
+    }
+
     }
 
 
-
-
-
-    
-
-    
-
-                                    
-    
-//     if (ptag.x< 15){
-//     changeState('street');
-//     };
 
 
 
@@ -227,7 +207,7 @@ boil.street.prototype = {
 
 
  function changeText(){
-        console.log('ikea', ikea);
+        console.log('ikea ST', ikea);
         if(textbox && ikea && wordIndex < text[ikea].dialog.length-1){
            wordIndex++ 
            var newText = text[ikea].dialog[wordIndex]
@@ -268,7 +248,7 @@ boil.street.prototype = {
             words = game.add.text(textX+textMargin,textY+textMargin,text[ikea].dialog[wordIndex],style);
             
             if(text[ikea].sprite !== null){
-                talksprite = game.add.sprite(500,600,text[ikea].sprite);
+                talksprite = game.add.sprite(400,550,text[ikea].sprite);
                 talksprite.scale.setTo(0.8,0.8);
                 talksprite.animations.add('talk', [0,1,2,3,4,5,6,7]);
                 talksprite.animations.play('talk',5,true);

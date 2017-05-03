@@ -5,6 +5,8 @@ var upIdle = 0
 var downIdle = 6
 var sideIdle = 3
 
+var selectedChoice = 1
+
 boil.cafeoutside.prototype = {
     preload: function(){
         game.load.tilemap('cafeoutsideTilemap', 'Assets/Backgrounds/cafeoutsideTilemap.json', null,Phaser.Tilemap.TILED_JSON);
@@ -12,6 +14,7 @@ boil.cafeoutside.prototype = {
         game.load.image('bar', 'Assets/Backgrounds/bar.png');
         game.load.spritesheet('ptag', 'Assets/Spritesheets/ptag.png',440,750);
         game.load.spritesheet('textbox','Assets/Spritesheets/textbox.png', 1500,470);
+        game.load.image('arrow','Assets/Spritesheets/arrow.jpg');
 
     },
     create: function(){
@@ -202,7 +205,19 @@ boil.cafeoutside.prototype = {
             ptag.body.velocity.y=0;
         }
 
-
+        if (choice1Text && choice2Text) {
+            console.log(selectedChoice)
+            if(game.input.keyboard.isDown(Phaser.Keyboard.LEFT) || game.input.keyboard.isDown(Phaser.Keyboard.RIGHT)){
+                
+                if(selectedChoice===1){
+                    selectedChoice=2
+                }
+                else{
+                    selectedChoice=1
+                }
+                console.log(selectedChoice)
+            }
+        }
      
 },
       furnitureType: function(index){
@@ -238,10 +253,24 @@ boil.cafeoutside.prototype = {
 
 
  function changeText(){
-        console.log('ikea', ikea);
+        console.log('ikea oooooo', ikea);
         if(textbox && ikea && wordIndex < text[ikea].dialog.length-1){
            wordIndex++ 
-           var newText = text[ikea].dialog[wordIndex]
+           
+           var newText = text[ikea].dialog[wordIndex];
+           dialogSplit = newText.split('|')
+            
+            if(dialogSplit.length===3){
+               newText = dialogSplit[0]
+               choice1Text.setText(dialogSplit[1])
+               choice2Text.setText(dialogSplit[2])
+            }
+            else{
+                choice1Text.setText('');
+                choice2Text.setText('')
+            }
+           
+//           var newText = text[ikea].dialog[wordIndex]
            words.setText(newText)
         }
         else if(textbox && ikea && wordIndex == text[ikea].dialog.length-1 && text[ikea].stateChange){
@@ -253,6 +282,8 @@ boil.cafeoutside.prototype = {
             textbox=null;
             words.destroy();
             talksprite.destroy();
+            choice1Text.destroy();
+            choice2Text.destroy();
         }
     
         else if(ikea!== undefined){
@@ -275,8 +306,16 @@ boil.cafeoutside.prototype = {
                 wordWrapWidth : textbox.width-(2*textMargin)
             };
             
+            console.log('add text', ikea);
+            
             wordIndex = 0
             words = game.add.text(textX+textMargin,textY+textMargin,text[ikea].dialog[wordIndex],style);
+            
+            var choiceVertOffset = 200
+            var choiceBaseOffset = textX+textMargin+145
+            
+            choice1Text = game.add.text(choiceBaseOffset,textY+textMargin+choiceVertOffset,'',style)
+            choice2Text = game.add.text(choiceBaseOffset + 300,textY+textMargin+choiceVertOffset,'',style)
             
             if(text[ikea].sprite !== null){
                 talksprite = game.add.sprite(400,475,text[ikea].sprite);
