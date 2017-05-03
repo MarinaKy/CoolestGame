@@ -51,48 +51,50 @@ boil.street.prototype = {
     
         
         furniture = {
-//            shelf: [
-//                [56,58],
-//                [60,62],
-//                [64,65]
-//            ],
-//            lamp: [
-//                [66,68]
-//            ],
-//////            plant: [
-//////                [36,39]
-//////            ],
-//            bed: [
-//                [153,178],
-//                [203,228],
-//                [253,278]
-//            ],
-//            sammy: [
-//                [120,124]
-//            ]
+            library: [
+                [749,774],
+                [799,824],
+                [849]
+            ],
+            home: [
+                [600,575],
+                [550,525]
+            ],
+////            plant: [
+////                [36,39]
+////            ],
+            park: [
+                [1325,1350],
+                [1375,1400],
+                [1425,1450]
+            ],
+
         };
 //        
         this.setupFurniture();
 //
         text = {
-//             sammy:{
-//                 dialog: [
-//                     'Hey there!',
-//                ],
-//                 sprite: 'talksammy'
-//             },
-//            shelf: {
-//                dialog: [
-//                    'just clothes',
-//                ],
-//                sprite: null
-//            },
-//            plant:{
-//                dialog: [
-//                    'sometimes you look out your window, and see kids trying to throw rocks at your face.',
-//                         ],
-//                sprite: null
-//            },
+             library:{
+                 dialog: [
+                     'Entering: Library',
+                ],
+                 sprite: null,
+                 stateChange: 'library'
+             },
+            home: {
+                dialog: [
+                    'Entering: Home',
+                ],
+                sprite: null,
+                stateChange: 'bedroom'  
+            },
+            park:{
+                dialog: [
+                    'Entering: Park',
+                         ],
+                sprite: null,
+                stateChange: 'park'  
+            },
 //            bed:{
 //                dialog: [
 //                    'This quilt was from your grandma for christmas.',
