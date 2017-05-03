@@ -52,7 +52,7 @@ boil.library.prototype = {
         right.onDown.add(this.toggleChoice, this);
         
         game.physics.startSystem(Phaser.Physics.ARCADE);
-        game.world.setBounds(0,0, 1250,1250);
+        game.world.setBounds(0,0, 1250,1500);
         game.stage.backgroundColor = '#000000';
         console.log('You are in the library state');        
         map = game.add.tilemap('libraryTilemap');
