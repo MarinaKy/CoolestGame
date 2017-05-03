@@ -1,14 +1,12 @@
 boil.street = function(){};
 
-var ptag, street,collisions,x,y map, furniture, text, textbox, ikea, idleFrame;
+var ptag, street,collisions,x,y, map, furniture, text, textbox, ikea, idleFrame;
 var upIdle = 0
 var downIdle = 6
 var sideIdle = 3
 
 boil.street.prototype = {
-    init: function(){
-        console.log(x + ' ' + y)
-    };
+    
     preload: function(){
         game.load.tilemap('streetTilemap', 'Assets/Backgrounds/streetTilemap.json', null,Phaser.Tilemap.TILED_JSON);
         game.load.image('streetTileset', 'Assets/Backgrounds/streetTileset.png',1250,3750);
@@ -28,7 +26,6 @@ boil.street.prototype = {
         map = game.add.tilemap('streetTilemap');
         map.addTilesetImage('streetTileset'); 
         street = map.createLayer('street');
-        ptag = game.add.sprite(x, y, 'ptag');
         ptag = game.add.sprite(110,1065, 'ptag');
         ptag.animations.add('walk',[3,4,5]);
         ptag.animations.add('walkd',[6,7,8]);
@@ -197,7 +194,6 @@ boil.street.prototype = {
     }
 
     }
-
 
 
 

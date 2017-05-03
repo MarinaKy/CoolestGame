@@ -14,7 +14,7 @@ boil.cafeoutside.prototype = {
         game.load.image('bar', 'Assets/Backgrounds/bar.png');
         game.load.spritesheet('ptag', 'Assets/Spritesheets/ptag.png',440,750);
         game.load.spritesheet('textbox','Assets/Spritesheets/textbox.png', 1500,470);
-        game.load.image('arrow','Assets/Spritesheets/arrow.jpg');
+        game.load.image('arrow','Assets/Spritesheets/arrow.png');
 
     },
     create: function(){
