@@ -1,20 +1,23 @@
 boil.cafeoutside = function(){};
 
-var ptag, x, y, cafeoutside,collisions, map, furniture, text, textbox, ikea, idleFrame;
+var ptag, x, y, cafeoutside,collisions,arrow1,arrow2, map, furniture, text, textbox, ikea, idleFrame;
 var upIdle = 0
 var downIdle = 6
 var sideIdle = 3
 
 var selectedChoice = 1
+var choice1Text, choice2Text
 
 boil.cafeoutside.prototype = {
+    
     preload: function(){
         game.load.tilemap('cafeoutsideTilemap', 'Assets/Backgrounds/cafeoutsideTilemap.json', null,Phaser.Tilemap.TILED_JSON);
         game.load.image('cafeoutsideTileset', 'Assets/Backgrounds/cafeoutsideTileset.png');
         game.load.image('bar', 'Assets/Backgrounds/bar.png');
         game.load.spritesheet('ptag', 'Assets/Spritesheets/ptag.png',440,750);
         game.load.spritesheet('textbox','Assets/Spritesheets/textbox.png', 1500,470);
-        game.load.image('arrow','Assets/Spritesheets/arrow.png');
+        game.load.image('arrow1','Assets/Spritesheets/arrow1.png');
+        game.load.image('arrow2','Assets/Spritesheets/arrow2.png');
 
     },
     create: function(){
