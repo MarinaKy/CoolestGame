@@ -31,7 +31,7 @@ boil.pbedroom.prototype = {
         polly = game.add.sprite(650,650, 'polly');
         polly.animations.add('stand',[0,1]);
         polly.animations.play('stand',3, true);
-        polly.scale.setTo(.33,.33);
+        polly.scale.setTo(.4,.4);
         ptag = game.add.sprite(game.world.centerX+350,game.world.centerY+450, 'ptag');
         ptag.animations.add('walk',[3,4,5]);
         ptag.animations.add('walkd',[6,7,8]);
@@ -39,7 +39,7 @@ boil.pbedroom.prototype = {
         
         game.physics.enable(ptag);
         ptag.body.collideWorldBounds=true;
-        ptag.scale.setTo(-.33,.33);
+        ptag.scale.setTo(-.4,.4);
         ptag.anchor.setTo(0.5);
         
         var collisiondata = map.layers[1].data; 
@@ -62,7 +62,7 @@ boil.pbedroom.prototype = {
                 [88,89,90]
             ],
             lamp: [
-                [125,126,127]
+                [125,126],
             ],
 ////            plant: [
 ////                [36,39]
@@ -71,7 +71,6 @@ boil.pbedroom.prototype = {
                 [155,180],
                 [205,230],
                 [255,280],
-                [303,305],
                 [305,306],
                 [307,308],
                 [309,310],
@@ -81,9 +80,6 @@ boil.pbedroom.prototype = {
                 [260,285],
                 
             ],
-//            sammy: [
-//                [120,124]
-//            ],
 //            counter: [
 //                [354,355,],
 //                [356,557],
@@ -108,7 +104,7 @@ boil.pbedroom.prototype = {
             },
             lamp:{
                 dialog: [
-                    'You are too fat to fit through here',
+                    'Her smile is brighter than this lamp',
                          ],
                 sprite: null
             },
@@ -162,7 +158,7 @@ boil.pbedroom.prototype = {
             ptag.body.velocity.y =300;
             ptag.body.velocity.x=0;
             ptag.animations.play('walkd', 10,true);
-            ptag.scale.setTo(.33,.33);
+            ptag.scale.setTo(.4,.4);
             idleFrame = downIdle;
             ikea = null;
         }
@@ -170,7 +166,7 @@ boil.pbedroom.prototype = {
             ptag.body.velocity.y =-300;
             ptag.body.velocity.x=0;
             ptag.animations.play('walku',10,true);
-            ptag.scale.setTo(.33,.33);
+            ptag.scale.setTo(.4,.4);
             idleFrame = upIdle;
             ikea = null;
         }
@@ -178,7 +174,7 @@ boil.pbedroom.prototype = {
             ptag.body.velocity.x=300;
             ptag.body.velocity.y=0;
             ptag.animations.play('walk',10, true);
-            ptag.scale.setTo(-.33,.33);
+            ptag.scale.setTo(-.4,.4);
             idleFrame = sideIdle;
             ikea = null;
        }
@@ -186,7 +182,7 @@ boil.pbedroom.prototype = {
             ptag.body.velocity.x=-300;
             ptag.body.velocity.y=0;
             ptag.animations.play('walk', 10, true);
-            ptag.scale.setTo(.33,.33);
+            ptag.scale.setTo(.4,.4);
             idleFrame = sideIdle;
             ikea = null;
        }

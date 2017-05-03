@@ -33,7 +33,7 @@ boil.street.prototype = {
         
         game.physics.enable(ptag);
         ptag.body.collideWorldBounds=true;
-        ptag.scale.setTo(-.3,.3);
+        ptag.scale.setTo(-.33,.33);
         ptag.anchor.setTo(0.5);
         game.camera.follow(ptag);
         var collisiondata = map.layers[1].data; 
