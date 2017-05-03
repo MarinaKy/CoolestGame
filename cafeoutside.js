@@ -117,21 +117,21 @@ boil.cafeoutside.prototype = {
                  sprite: null,
                  stateChange: 'pepbedroom'
             },
-            window:{
-                 dialog: [
-                     'Who is that ugly person?',
-                     'Oh wait',
-                     'It’s just your reflection',
-,
-                ],
-                 sprite: null,
-            },
-            stair:{
-                 dialog: [
-                    'These stairs go higher than your self esteem',
-                ],
-                 sprite: null,
-            },
+//            window:{
+//                 dialog: [
+//                     'Who is that ugly person?',
+//                     'Oh wait',
+//                     'It’s just your reflection',
+//,
+//                ],
+//                 sprite: null,
+//            },
+//            stair:{
+//                 dialog: [
+//                    'These stairs go higher than your self esteem',
+//                ],
+//                 sprite: null,
+//            },
 //            couch:{
 //                dialog:[
 //                    'You found this couch on the sidewalk a few years ago.',
@@ -139,17 +139,17 @@ boil.cafeoutside.prototype = {
 //                ],
 //                sprite: null
 //            },
-//            wedge: {
-//                dialog: [
-//                    'You find a packet of mushrooms wedged between the mattress and the frame of the bed.',
-//                    'They look old, but at this point you’re too hungry to care.',
-//                    'You eat the mushrooms'
-//                ],
-//                sprite: 'shrooms',
-//                //end: 'pop',
-//                stateChange: 'ocafeoutside'              
-//            }
-//            
+            wedge: {
+                dialog: [
+                    'You find a packet of mushrooms wedged between the mattress and the frame of the bed.',
+                    'They look old, but at this point you’re too hungry to care.',
+                    'You eat the mushrooms'
+                ],
+                sprite: 'shrooms',
+                //end: 'pop',
+                stateChange: 'ocafeoutside'              
+            }
+            
         }
     },
     update: function(){
