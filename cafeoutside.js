@@ -62,16 +62,16 @@ boil.cafeoutside.prototype = {
                 [426,427],
                 [428,429],
             ],
-            01: [
+            sbedroom: [
                 [177,178,179]
             ],
-            02: [
+            pbedroom: [
                 [183,184,185]
             ],
-            03: [
+            cbedroom: [
                 [189,190,191]
             ],
-            04: [
+            pepbedroom: [
                 [195,196,197]
             ],
 //            counter: [
@@ -95,30 +95,30 @@ boil.cafeoutside.prototype = {
                  sprite: null,
                  stateChange: 'cafe'
              },
-             01:{
+             sbedroom:{
                  dialog: [
-                     'Entering: Apartment 01',
+                     'Entering: Apartment ONE',
                 ],
                  sprite: null,
                 stateChange: 'sbedroom'
             },
-             02:{
+             pbedroom:{
                  dialog: [
-                     'Entering: Apartment 02',
+                     'Entering: Apartment TWO',
                 ],
                  sprite: null,
                  stateChange: 'pbedroom'
             },
-             03:{
+             cbedroom:{
                  dialog: [
-                     'Entering: Apartment 03',
+                     'Entering: Apartment THREE',
                 ],
                  sprite: null,
                  stateChange: 'cbedroom'
             },
-             04:{
+             pepbedroom:{
                  dialog: [
-                     'Entering: Apartment 04',
+                     'Entering: Apartment FOUR',
                 ],
                  sprite: null,
 

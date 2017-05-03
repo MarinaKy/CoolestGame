@@ -33,7 +33,7 @@ boil.sbedroom.prototype = {
         
         game.physics.enable(ptag);
         ptag.body.collideWorldBounds=true;
-        ptag.scale.setTo(-.33,.33);
+        ptag.scale.setTo(-.4,.4);
         ptag.anchor.setTo(0.5);
         
         var collisiondata = map.layers[1].data; 
@@ -50,43 +50,32 @@ boil.sbedroom.prototype = {
         }
     
         
-        furniture = {
-            shelf: [
-                [86,87],
-                [88,89,90]
-            ],
-            lamp: [
-                [125,126,127]
-            ],
-////            plant: [
-////                [36,39]
-////            ],
-            bed: [
-                [155,180],
-                [205,230],
-                [255,280],
-                [303,305],
-                [305,306],
-                [307,308],
-                [309,310],
-                [110,135],
-                [160,185],
-                [210,235],
-                [260,285],
+     furniture = {
+            desk: [
+                [215,216],
+                [217,218,],
+                [219,220],
+                
                 
             ],
-//            sammy: [
-//                [120,124]
-//            ],
-//            counter: [
-//                [354,355,],
-//                [356,557],
-//                [358,360]
-//            ],
-//            couch: [
-//                [527,552],
-//                [577,602]
-//            ],
+            shelf: [
+                [109,110],
+                [111,112]
+            ],
+            bed: [
+                [181,206],
+                [231,230],
+                [229,228],
+            ],
+            lamp: [
+                [350,351],
+                [352,327],
+            ],
+            shoes: [
+                [573,548],
+                [523,498],
+                [473,474],
+            ],
             
         };
 //        
@@ -94,45 +83,39 @@ boil.sbedroom.prototype = {
 //
         text = {
              
-            shelf: {
+            desk: {
                 dialog: [
-                   
-                    'You wonder what kind of books she reads',
-                    'Oh yea',
-                    'You can’t read',
+                    '.',
+
+
                 ],
                 sprite: null
             },
-            lamp:{
+            shelf:{
                 dialog: [
-                    'This lamp costs more than your life',
+                     'Why are you even standing here.',
                          ],
                 sprite: null
             },
             bed:{
                 dialog: [
-                   'It looks more comfortable than yours',
+                   'You wish you could sleep in a bed like this ( ͡° ͜ʖ ͡°)',
+
                 ],
                 sprite: null
             }, 
-            table: {
+            lamp:{
                 dialog: [
-                    'You did not know that you could stoop so low....'
-                    '...oh wait...you cant...'
-                ]
+                    'Her smile shines brighter than any lamp',
+                         ],
+                sprite: null
             },
-          
-//            wedge: {
-//                dialog: [
-//                    'You find a packet of mushrooms wedged between the mattress and the frame of the bed.',
-//                    'They look old, but at this point you’re too hungry to care.',
-//                    'You eat the mushrooms'
-//                ],
-//                sprite: 'shrooms',
-//                //end: 'pop',
-//                stateChange: 'osbedroom'              
-//            }
-//            
+            shoes:{
+                dialog: [
+                    'Her smile shines brighter than any lamp',
+                         ],
+                sprite: null
+            },
         }
     },
     update: function(){
@@ -142,7 +125,7 @@ boil.sbedroom.prototype = {
             ikea = self.furnitureType(obj2.index);
         })
                 
-     if (ptag.x>1161){
+      if (ptag.y>1075){
      changeState('cafeoutside');
      }
     
@@ -150,7 +133,7 @@ boil.sbedroom.prototype = {
             ptag.body.velocity.y =300;
             ptag.body.velocity.x=0;
             ptag.animations.play('walkd', 10,true);
-            ptag.scale.setTo(.33,.33);
+            ptag.scale.setTo(.4,.4);
             idleFrame = downIdle;
             ikea = null;
         }
@@ -158,7 +141,7 @@ boil.sbedroom.prototype = {
             ptag.body.velocity.y =-300;
             ptag.body.velocity.x=0;
             ptag.animations.play('walku',10,true);
-            ptag.scale.setTo(.33,.33);
+            ptag.scale.setTo(.4,.4);
             idleFrame = upIdle;
             ikea = null;
         }
@@ -166,7 +149,7 @@ boil.sbedroom.prototype = {
             ptag.body.velocity.x=300;
             ptag.body.velocity.y=0;
             ptag.animations.play('walk',10, true);
-            ptag.scale.setTo(-.33,.33);
+            ptag.scale.setTo(-.4,.4);
             idleFrame = sideIdle;
             ikea = null;
        }
@@ -174,7 +157,7 @@ boil.sbedroom.prototype = {
             ptag.body.velocity.x=-300;
             ptag.body.velocity.y=0;
             ptag.animations.play('walk', 10, true);
-            ptag.scale.setTo(.33,.33);
+            ptag.scale.setTo(.4,.4);
             idleFrame = sideIdle;
             ikea = null;
        }

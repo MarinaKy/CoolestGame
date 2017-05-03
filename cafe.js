@@ -155,6 +155,10 @@ boil.cafe.prototype = {
         }
         else {
             hasAwoken=true
+            
+               if (ptag.y>1085){
+     changeState('cafeoutside');
+     }
     
         if(game.input.keyboard.isDown(Phaser.Keyboard.S)){
             ptag.body.velocity.y =300;
