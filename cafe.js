@@ -87,18 +87,35 @@ boil.cafe.prototype = {
         this.setupFurniture();
 //
         text = {
-//             sammy:{
+             cindy:{
+                 dialog: [
+                     '?!?!?!?!?!?!?!', 
+                ],
+                 sprite: 'cindy'
+             }, 
+    
+//            cindy:{
 //                 dialog: [
-//                     'Hey there!',
+//                     '‘D U D E. This is real leather.’
+//        'You’re gonna have to pay for this.',
+//
 //                ],
-//                 sprite: 'talksammy'
+//                 sprite: 'cindy'
 //             },
-//            shelf: {
-//                dialog: [
-//                    'just clothes',
-//                ],
-//                sprite: null
-//            },
+            counter: {
+                dialog: [
+                    'These cost more than your life savings',
+                    'But don’t worry',
+                    'You can just eat their leftovers on trash day', 
+                ],
+                sprite: null
+             },
+            cafechair: {
+                dialog: [
+                   'mmmm...still warm',
+                ],
+                sprite: null
+            }, 
 //            plant:{
 //                dialog: [
 //                    'sometimes you look out your window, and see kids trying to throw rocks at your face.',
@@ -207,40 +224,7 @@ boil.cafe.prototype = {
     },    
     }
 
-text = {
-             cindy:{
-                 dialog: [
-                     '?!?!?!?!?!?!?!', 
-                ],
-                 sprite: 'cindy'
-             },
-           
-    
-     cindy:{
-                 dialog: [
-                     '‘D U D E. This is real leather.’
-        'You’re gonna have to pay for this.',
 
-                ],
-                 sprite: 'cindy'
-             },
-           
-    
-    
-            counter: {
-                dialog: [
-                    'These cost more than your life savings',
-                    'But don’t worry',
-                    'You can just eat their leftovers on trash day', 
-                ],
-                sprite: null
-             },
-            cafechair: {
-                dialog: [
-                   'mmmm...still warm',
-                ],
-                sprite: null
-            }, 
 
 
     

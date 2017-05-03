@@ -27,10 +27,12 @@ boil.pbedroom.prototype = {
         map = game.add.tilemap('pbedroomTilemap');
         map.addTilesetImage('pbedroomTileset'); 
         pbedroom = map.createLayer('pbedroom');
-        ptag = game.add.sprite(game.world.centerX+350,game.world.centerY+450, 'ptag');
-        polly = game.add.sprite(game.world.centerX+350,game.world.centerY+600, 'polly');
+        
+        polly = game.add.sprite(650,650, 'polly');
         polly.animations.add('stand',[0,1]);
         polly.animations.play('stand',3, true);
+        polly.scale.setTo(.33,.33);
+        ptag = game.add.sprite(game.world.centerX+350,game.world.centerY+450, 'ptag');
         ptag.animations.add('walk',[3,4,5]);
         ptag.animations.add('walkd',[6,7,8]);
         ptag.animations.add('walku',[0,1,2]);
