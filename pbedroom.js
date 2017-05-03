@@ -169,6 +169,7 @@ boil.pbedroom.prototype = {
      changeState('cafeoutside');
      }
     
+        
         if(game.input.keyboard.isDown(Phaser.Keyboard.S)){
             ptag.body.velocity.y =300;
             ptag.body.velocity.x=0;

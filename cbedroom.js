@@ -162,9 +162,9 @@ boil.sbedroom.prototype = {
             ikea = self.furnitureType(obj2.index);
         })
                 
-      if (ptag.y>1075){
-     changeState('cafeoutside');
-     }
+//      if (ptag.y>1075){
+//     changeState('cafeoutside');
+//     }
     
         if(game.input.keyboard.isDown(Phaser.Keyboard.S)){
             ptag.body.velocity.y =300;
