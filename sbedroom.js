@@ -115,12 +115,11 @@ boil.sbedroom.prototype = {
                 ],
                 sprite: null
             }, 
-            counter:{
-                dialog:[
-                    'You own a single cup',
-                    '(because you have no friends)',
-                ],
-                sprite: null
+            table: {
+                dialog: [
+                    'You did not know that you could stoop so low....'
+                    '...oh wait...you cant...'
+                ]
             },
           
 //            wedge: {
