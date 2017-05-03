@@ -24,10 +24,6 @@
         }],
  "nextobjectid":1,
  "orientation":"orthogonal",
- "properties":
-    {
-
-    },
  "renderorder":"right-down",
  "tileheight":50,
  "tilesets":[
@@ -39,10 +35,6 @@
          "imagewidth":1250,
          "margin":0,
          "name":"pepbedroomTileset",
-         "properties":
-            {
-
-            },
          "spacing":0,
          "tilecount":625,
          "tileheight":50,
