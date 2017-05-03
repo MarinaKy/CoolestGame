@@ -1,6 +1,6 @@
 boil.bedroom = function(){};
 
-var ptag, x, y, bedroom,collisions, map,arrow1,arrow2, furniture, text, textbox, ikea, idleFrame;
+var ptag, x, y, bedroom,collisions, map,arrow1,arrow2, furniture, text,response1, response2, textbox, ikea, idleFrame,enter;
 var upIdle = 0
 var downIdle = 6
 var sideIdle = 3
@@ -15,20 +15,20 @@ boil.bedroom.prototype = {
         if(choice1Text && choice2Text) {
             if(selectedChoice===1){
                 selectedChoice=2
-                arrow2 = game.add.sprite(150,1155,'arrow2')
+                arrow2 = game.add.sprite(160,1155,'arrow2')
                 arrow1.destroy()
-
                 // Move arrow to right choice   
             }
             else if(selectedChoice===2){
                 selectedChoice=1
                 arrow2.destroy()
-                arrow1 = game.add.sprite(500,1155,'arrow1')
+                arrow1 = game.add.sprite(485,1155,'arrow1')
                                      
                 // move arrow to left choice
             }
             console.log(selectedChoice) 
         }
+        
         
        
     },
@@ -46,7 +46,7 @@ boil.bedroom.prototype = {
     create: function(){
         var enter = this.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
         enter.onDown.add(changeText, this);
-        
+
         var left = this.input.keyboard.addKey(Phaser.Keyboard.LEFT);
         left.onDown.add(this.toggleChoice, this);
         

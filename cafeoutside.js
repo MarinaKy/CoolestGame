@@ -97,28 +97,28 @@ boil.cafeoutside.prototype = {
                      'Entering: Apartment 01',
                 ],
                  sprite: null,
-                 stateChange: 'pbedroom'
+                 stateChange: 'pepbedroom'
             },
              02:{
                  dialog: [
                      'Entering: Apartment 02',
                 ],
                  sprite: null,
-                 stateChange: 'bedroom'
+                 stateChange: 'pbedroom'
             },
              03:{
                  dialog: [
                      'Entering: Apartment 03',
                 ],
                  sprite: null,
-                 stateChange: 'bedroom'
+                 stateChange: 'cbedroom'
             },
              04:{
                  dialog: [
                      'Entering: Apartment 04',
                 ],
                  sprite: null,
-                 stateChange: 'bedroom'
+                 stateChange: 'sbedroom'
             },
             
 //            couch:{
