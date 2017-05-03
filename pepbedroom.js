@@ -1,14 +1,14 @@
-boil.sbedroom = function(){};
+boil.pepbedroom = function(){};
 
-var ptag, x, y, sbedroom,collisions, map, furniture, text, textbox, ikea, idleFrame;
+var ptag, x, y, pepbedroom,collisions, map, furniture, text, textbox, ikea, idleFrame;
 var upIdle = 0
 var downIdle = 6
 var sideIdle = 3
 
-boil.sbedroom.prototype = {
+boil.pepbedroom.prototype = {
     preload: function(){
-        game.load.tilemap('sbedroomTilemap', 'Assets/Backgrounds/sbedroomTilemap.json', null,Phaser.Tilemap.TILED_JSON);
-        game.load.image('sbedroomTileset', 'Assets/Backgrounds/sbedroomTileset.png');
+        game.load.tilemap('pepbedroomTilemap', 'Assets/Backgrounds/pepbedroomTilemap.json', null,Phaser.Tilemap.TILED_JSON);
+        game.load.image('pepbedroomTileset', 'Assets/Backgrounds/pepbedroomTileset.png');
         game.load.spritesheet('ptag', 'Assets/Spritesheets/ptag.png',440,750);
         game.load.spritesheet('textbox','Assets/Spritesheets/textbox.png', 1500,470);
 //        game.load.spritesheet('talksammy','Assets/Spritesheets/talksammy.png', 874,500);
@@ -22,10 +22,10 @@ boil.sbedroom.prototype = {
         game.physics.startSystem(Phaser.Physics.ARCADE);
         game.world.setBounds(0,0, 1250,1250);
         game.stage.backgroundColor = '#000000';
-        console.log('You are in the sbedroom state');        
-        map = game.add.tilemap('sbedroomTilemap');
-        map.addTilesetImage('sbedroomTileset'); 
-        sbedroom = map.createLayer('sbedroom');
+        console.log('You are in the pepbedroom state');        
+        map = game.add.tilemap('pepbedroomTilemap');
+        map.addTilesetImage('pepbedroomTileset'); 
+        pepbedroom = map.createLayer('pepbedroom');
         ptag = game.add.sprite(game.world.centerX+350,game.world.centerY+450, 'ptag');
         ptag.animations.add('walk',[3,4,5]);
         ptag.animations.add('walkd',[6,7,8]);
@@ -42,7 +42,7 @@ boil.sbedroom.prototype = {
                 var tile = collisiondata[i][j];
                 if (tile.index != -1){
                     console.log(tile.index);
-                    map.setCollision(tile.index,'sbedroom')
+                    map.setCollision(tile.index,'pepbedroom')
                 }
 
             }
@@ -120,7 +120,7 @@ boil.sbedroom.prototype = {
     },
     update: function(){
         var self = this;
-            game.physics.arcade.collide(ptag, sbedroom, function(obj1, obj2) { 
+            game.physics.arcade.collide(ptag, pepbedroom, function(obj1, obj2) { 
             console.log('collided', self.furnitureType(obj2.index));
             ikea = self.furnitureType(obj2.index);
         })
@@ -190,7 +190,7 @@ boil.sbedroom.prototype = {
             var key = keylist[i];
             for(var j=0; j<furniture[key].length;j++){
                 var tiles = furniture[key][j];
-                map.setCollision(tiles[0],tiles[1],'sbedroom');
+                map.setCollision(tiles[0],tiles[1],'pepbedroom');
             }
         }
     }
