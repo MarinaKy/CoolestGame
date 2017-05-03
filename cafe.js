@@ -167,10 +167,6 @@ boil.cafe.prototype = {
         else {
             hasAwoken=true
     
-              if (ptag.y>1108.75){
-     changeState('street');
-     }
-    
         if(game.input.keyboard.isDown(Phaser.Keyboard.S)){
             ptag.body.velocity.y =300;
             ptag.body.velocity.x=0;
