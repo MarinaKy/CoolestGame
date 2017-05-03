@@ -189,7 +189,7 @@ boil.bedroom.prototype = {
         })
                 
      if (ptag.x>1161){
-     changeState('cafeoutside');
+     changeState('street');
      }
     
         if(game.input.keyboard.isDown(Phaser.Keyboard.S)){
