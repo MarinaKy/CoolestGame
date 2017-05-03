@@ -37,6 +37,7 @@ boil.bedroom.prototype = {
         game.load.spritesheet('textbox','Assets/Spritesheets/textbox.png', 1500,470);
         game.load.spritesheet('talksammy','Assets/Spritesheets/talksammy.png', 874,500);
         game.load.spritesheet('sammy','Assets/Spritesheets/sammy.png', 500,500);
+        game.load.image('arrow','Assets/Spritesheets/arrow.png');
     },
     create: function(){
         var enter = this.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
