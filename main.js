@@ -7,6 +7,11 @@ game.state.add('street', boil.street);
 game.state.add('building', boil.building);
 game.state.add('bedroom', boil.bedroom);
 game.state.add('pbedroom', boil.pbedroom);
+game.state.add('pepbedroom', boil.pbedroom);
+game.state.add('cbedroom', boil.pbedroom);
+game.state.add('sbedroom', boil.pbedroom);
+
+
 //game.state.add('livingR',boil.livingR);
 //game.state.add('kitchen',boil.kitchen);
 //game.state.add('oBathroom',boil.oBathroom);
