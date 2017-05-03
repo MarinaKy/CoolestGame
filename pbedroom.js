@@ -10,6 +10,7 @@ boil.pbedroom.prototype = {
         game.load.tilemap('pbedroomTilemap', 'Assets/Backgrounds/pbedroomTilemap.json', null,Phaser.Tilemap.TILED_JSON);
         game.load.image('pbedroomTileset', 'Assets/Backgrounds/pbedroomTileset.png');
         game.load.spritesheet('ptag', 'Assets/Spritesheets/ptag.png',440,750);
+        game.load.spritesheet('polly', 'Assets/Spritesheets/polly.png',440,750);
         game.load.spritesheet('textbox','Assets/Spritesheets/textbox.png', 1500,470);
 //        game.load.spritesheet('talksammy','Assets/Spritesheets/talksammy.png', 874,500);
 //        game.load.spritesheet('sammy','Assets/Spritesheets/sammy.png', 500,500);
@@ -27,6 +28,9 @@ boil.pbedroom.prototype = {
         map.addTilesetImage('pbedroomTileset'); 
         pbedroom = map.createLayer('pbedroom');
         ptag = game.add.sprite(game.world.centerX+350,game.world.centerY+450, 'ptag');
+        polly = game.add.sprite(game.world.centerX+350,game.world.centerY+600, 'polly');
+        polly.animations.add('stand',[0,1]);
+        polly.animations.play('stand',3, true);
         ptag.animations.add('walk',[3,4,5]);
         ptag.animations.add('walkd',[6,7,8]);
         ptag.animations.add('walku',[0,1,2]);
