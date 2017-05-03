@@ -75,15 +75,6 @@ boil.pbedroom.prototype = {
                 [260,285],
                 
             ],
-            
-            desk: [
-                [80085]
-            ],
-            
-            table: [
-                [800852]
-            ]
-            
 //            sammy: [
 //                [120,124]
 //            ],
@@ -122,20 +113,20 @@ boil.pbedroom.prototype = {
                 ],
                 sprite: null
             }, 
-//            Desk:{
-//                dialog:[
-//                    'Trying to snoop on her laptop?',
-//                    'You’re disgusting',
-//                    
-//                ],
-//                sprite: null
-//            },
-//            Table:{
-//                dialog:[
-//                    'A table for two....',
-//                    '...something you will never have...',
-//                ],
-//                sprite: null
+            Desk:{
+                dialog:[
+                    'Trying to snoop on her laptop?',
+                    'You’re disgusting',
+                    
+                ],
+                sprite: null
+            },
+            Table:{
+                dialog:[
+                    'A table for two....',
+                    '...something you will never have...',
+                ],
+                sprite: null
             },
 //            wedge: {
 //                dialog: [

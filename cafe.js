@@ -86,7 +86,7 @@ boil.cafe.prototype = {
 //        
         this.setupFurniture();
 //
-//        text = {
+        text = {
 //             sammy:{
 //                 dialog: [
 //                     'Hey there!',
@@ -125,45 +125,8 @@ boil.cafe.prototype = {
 //                //end: 'pop',
 //                stateChange: 'oBedroom'              
 //            }
-     
-//             cindy:{
-//                 dialog: [
-//                     '?!?!?!?!?!?!?!', 
-//                ],
-//                 sprite: 'cindy'
-//             },
-////
-////    
-//             cindy:{
-//                 dialog: [
-//                     '‘D U D E. This is real leather.’
-//        'You’re gonna have to pay for this.',
-//
-//                ],
-//                 sprite: 'cindy'
-//             },
-//           
-//    
-//    
-//           
-//                     
-//            cafecounter: {
-//                dialog: [
-//                    'These cost more than your life savings',
-//                    'But don’t worry',
-//                    'You can just eat their leftovers on trash day', 
-//                ],
-//                sprite: null
-//             },
-//            cafechair: {
-//                dialog: [
-//                   'mmmm...still warm',
-//                ],
-//                sprite: null
-//            }, 
-
-    
-        
+//            
+        }
     },
     update: function(){
          if(cindy.angle>0){
@@ -244,8 +207,40 @@ boil.cafe.prototype = {
     },    
     }
 
+text = {
+             cindy:{
+                 dialog: [
+                     '?!?!?!?!?!?!?!', 
+                ],
+                 sprite: 'cindy'
+             },
+           
+    
+     cindy:{
+                 dialog: [
+                     '‘D U D E. This is real leather.’
+        'You’re gonna have to pay for this.',
 
-
+                ],
+                 sprite: 'cindy'
+             },
+           
+    
+    
+            counter: {
+                dialog: [
+                    'These cost more than your life savings',
+                    'But don’t worry',
+                    'You can just eat their leftovers on trash day', 
+                ],
+                sprite: null
+             },
+            cafechair: {
+                dialog: [
+                   'mmmm...still warm',
+                ],
+                sprite: null
+            }, 
 
 
     
