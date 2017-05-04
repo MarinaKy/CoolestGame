@@ -290,6 +290,13 @@ boil.cafeoutside.prototype = {
             talksprite.destroy();
             choice1Text.destroy();
             choice2Text.destroy();
+            
+            if(arrow1) {
+                arrow1.destroy();
+            }
+            if(arrow2) {
+                arrow2.destroy();
+            }
         }
     
         else if(ikea!== undefined){
