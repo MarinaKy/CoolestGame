@@ -11,7 +11,9 @@ boil.sbedroom.prototype = {
         game.load.image('sbedroomTileset', 'Assets/Backgrounds/sbedroomTileset.png');
         game.load.spritesheet('ptag', 'Assets/Spritesheets/ptag.png',440,750);
         game.load.spritesheet('textbox','Assets/Spritesheets/textbox.png', 1500,470);
-//        game.load.spritesheet('talksammy','Assets/Spritesheets/talksammy.png', 874,500);
+        game.load.spritesheet('sally','Assets/Spritesheets/sally.png', 440,750);
+        game.load.image('stalk','Assets/Spritesheets/stalk.png'v)
+        
 //        game.load.spritesheet('sammy','Assets/Spritesheets/sammy.png', 500,500);
     },
     create: function(){
@@ -27,6 +29,11 @@ boil.sbedroom.prototype = {
         map.addTilesetImage('sbedroomTileset'); 
         sbedroom = map.createLayer('sbedroom');
         ptag = game.add.sprite(game.world.centerX+350,game.world.centerY+450, 'ptag');
+        sally = game.add.sprite(game.world.centerX+350,game.world.centerY+50, 'sally');
+        
+        sally.animations.add('stand',[0,1]);
+        sally.animations.play('stand',5,true);
+        sally.scale.setTo(.4,.4);
         ptag.animations.add('walk',[3,4,5]);
         ptag.animations.add('walkd',[6,7,8]);
         ptag.animations.add('walku',[0,1,2]);
@@ -76,6 +83,9 @@ boil.sbedroom.prototype = {
                 [523,498],
                 [473,474],
             ],
+            sally: [
+                [472],
+            ]
             
         };
 //        
@@ -115,6 +125,13 @@ boil.sbedroom.prototype = {
                     'Her smile shines brighter than any lamp',
                          ],
                 sprite: null
+            },
+            sally:{
+                dialog: [ 
+                     'Hey.',
+                    'Take a look around, I guess'
+                ],
+                sprite: 'stalk'
             },
         }
     },
