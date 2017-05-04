@@ -1,4 +1,4 @@
-boil.bedroom = function(){};
+boil.bedroom = function (){};
 
 var ptag, x, y, bedroom,collisions, map,arrow1,arrow2, furniture, text,response1, response2, textbox, ikea, idleFrame,enter;
 var upIdle = 0
@@ -86,6 +86,7 @@ boil.bedroom.prototype = {
             }
             
         }
+        
     
         
         furniture = {
@@ -187,6 +188,12 @@ boil.bedroom.prototype = {
 //            
         }
     },
+    //
+
+
+
+    
+    //
     update: function(){
         var self = this;
             game.physics.arcade.collide(ptag, bedroom, function(obj1, obj2) { 
@@ -241,6 +248,8 @@ boil.bedroom.prototype = {
 
      
 },
+    
+    
       furnitureType: function(index){
          var keylist = Object.keys(furniture);
         for(var i=0; i<keylist.length; i++){

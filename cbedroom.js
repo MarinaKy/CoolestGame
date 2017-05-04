@@ -50,39 +50,35 @@ boil.cbedroom.prototype = {
         }
     
         
-        furniture = {
-            shelf: [
-                [86,87],
-                [88,89,90]
+    furniture = {
+            desk: [
+                [447,448],
+                [449,472],
+                [497,522],
+                [547,572],
+                
+                
             ],
-            lamp: [
-                [125,126,127]
+            shelf: [
+                [110,111],
+                [112,113],
+                [114,115],
             ],
 ////            plant: [
 ////                [36,39]
 ////            ],
             bed: [
-                [155,180],
-                [205,230],
-                [255,280],
-                [303,305],
-                [305,306],
-                [307,308],
-                [309,310],
-                [110,135],
-                [160,185],
-                [210,235],
-                [260,285],
-                
+                [195,220],
+                [245,270],
+                [295,296],
+                [297,298],
             ],
-//            sammy: [
-//                [120,124]
-//            ],
-//            counter: [
-//                [354,355,],
-//                [356,557],
-//                [358,360]
-//            ],
+            plant: [
+                [107,108],
+            ],
+            lamp: [
+                [119,118],
+            ],
 //            couch: [
 //                [527,552],
 //                [577,602]
@@ -94,65 +90,39 @@ boil.cbedroom.prototype = {
 //
         text = {
              
-            shelf: {
+            desk: {
                 dialog: [
-                     'Shameful', 
+                    '.',
+
+
                 ],
                 sprite: null
             },
-            lamp:{
+            shelf:{
                 dialog: [
-                   'You wonder if it works like a lamp',
-
+                     'Why are you even standing here.',
                          ],
                 sprite: null
             },
             bed:{
                 dialog: [
-                    'You can see the indent of where she slept',
-                ],
-                sprite: null
-            }, 
-            counter:{
-                dialog:[
-                    '......You feel like a stalker….',
-                    '......You kinda are acting like a stalker right now',
+                   'You wish you could sleep in a bed like this ( ͡° ͜ʖ ͡°)',
 
                 ],
                 sprite: null
-            },
-            tree:{
-                dialog:[
-                    '....It looks more alive than you…..',
-                ],
+            }, 
+            lamp:{
+                dialog: [
+                    'Her smile shines brighter than any lamp',
+                         ],
                 sprite: null
             },
-            Clock:{
-                dialog:[
-                   'You never learned how to read the time…',
-                   'You pity yourself',
-                   '....cuz no one else will….',
-                ],
+            shoes:{
+                dialog: [
+                    'Her smile shines brighter than any lamp',
+                         ],
                 sprite: null
             },
-             Counter:{
-                dialog:[
-                  'SOMEONE know how to decorate',
-                  '(that someone is not you)',
-                ],
-                sprite: null
-            },
-//            wedge: {
-//                dialog: [
-//                    'You find a packet of mushrooms wedged between the mattress and the frame of the bed.',
-//                    'They look old, but at this point you’re too hungry to care.',
-//                    'You eat the mushrooms'
-//                ],
-//                sprite: 'shrooms',
-//                //end: 'pop',
-//                stateChange: 'ocbedroom'              
-//            }
-//            
         }
     },
     update: function(){
